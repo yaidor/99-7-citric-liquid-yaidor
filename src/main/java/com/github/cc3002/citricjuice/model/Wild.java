@@ -32,7 +32,7 @@ public class Wild extends AbstractContender{
   public void loseByBoss(AbstractContender enemigo) {
     enemigo.addStars(this.getStars()/2);
     enemigo.addWins(1);
-    this.reduceStarsBy(this.getStars()-(this.getStars()/2));
+    this.reduceStarsBy(this.getStars()/2);
     //debo perder la mitad de mis estrellas(y el enemigo ganarlas)
     //el enemigo gana 1 victorias
   }
@@ -41,7 +41,7 @@ public class Wild extends AbstractContender{
   public void loseByWild(AbstractContender enemigo) {
     enemigo.addStars(this.getStars()/2);
     enemigo.addWins(1);
-    this.reduceStarsBy(this.getStars()-(this.getStars()/2));
+    this.reduceStarsBy(this.getStars()/2);
     //debo perder la mitad de mis estrellas(y el enemigo ganarlas)
     //el enemigo gana 1 victorias
   }

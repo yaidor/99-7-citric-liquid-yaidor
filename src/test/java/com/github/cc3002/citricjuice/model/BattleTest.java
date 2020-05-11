@@ -59,4 +59,14 @@ public class BattleTest {
     assertEquals(19, superJugador.getStars());
     assertEquals(11, superJugador.getWins());
   }
+
+  @Test
+  public void evilWin(){
+    final var matonAttac = new Jugador(MALON, 5, 100, 1, 1);
+    final var bossAttac = new Boss(MALON, 5, 100, 1, 1);
+    suguri.addStars(9);
+    bossAttac.addStars(10);
+    bossAttac.attack(suguri);
+    assertEquals(5,suguri.getStars());
+  }
 }
