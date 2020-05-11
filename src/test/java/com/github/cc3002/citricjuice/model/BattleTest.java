@@ -68,5 +68,9 @@ public class BattleTest {
     bossAttac.addStars(10);
     bossAttac.attack(suguri);
     assertEquals(5,suguri.getStars());
+    assertEquals(14,bossAttac.getStars());
+    matonAttac.attack(bossAttac);
+    assertEquals(14,matonAttac.getStars());
+    assertEquals(3,matonAttac.getWins());
   }
 }
