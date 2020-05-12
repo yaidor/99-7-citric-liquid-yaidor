@@ -13,4 +13,17 @@ public class BossPanel extends AbstractPanel{
   public BossPanel(int idpanel, Set<AbstractPanel> next, Set<Jugador> ocupado) {
     super(idpanel,next, ocupado);
   }
+
+  /**
+   * is the action that confirms if a boss can appear
+   * and combat him
+   *
+   * @param jugador
+   *    is the player that activate the panel
+   */
+
+  @Override
+  public void action(Jugador jugador) {
+
+  }
 }

@@ -11,6 +11,13 @@ public class BonusPanel extends AbstractPanel{
     super(idpanel,next, ocupado);
   }
 
+  /**
+   * increases the player's stars
+   *
+   * @param jugador
+   *    is the player who increases the stars
+   */
+
   @Override
   public void action(Jugador jugador) {
     jugador.increaseStarsBy(jugador.roll() * Math.min(jugador.getNormaLevel(), 3));

@@ -13,4 +13,16 @@ public class DrawPanel extends AbstractPanel{
   public DrawPanel(int idpanel, Set<AbstractPanel> next, Set<Jugador> ocupado) {
     super(idpanel,next, ocupado);
   }
+
+  /**
+   * Draw a cart
+   *
+   * @param jugador
+   *    is the player who draws it
+   */
+
+  @Override
+  public void action(Jugador jugador) {
+
+  }
 }

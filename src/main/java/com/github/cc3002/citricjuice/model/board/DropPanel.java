@@ -13,6 +13,14 @@ public class DropPanel extends AbstractPanel{
   public DropPanel(int idpanel, Set<AbstractPanel> next, java.util.Set<Jugador> ocupado) {
     super(idpanel,next, ocupado);
   }
+
+  /**
+   * reduce stars from target player
+   *
+   * @param jugador
+   *    is the target player
+   */
+
   @Override
   public void action(Jugador jugador) {
     jugador.reduceStarsBy(jugador.roll() * jugador.getNormaLevel());

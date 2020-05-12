@@ -11,4 +11,13 @@ public class NeutralPanel extends AbstractPanel {
     super(idpanel,next, ocupado);
   }
 
+  /**
+   * This action doesn't do anything
+   */
+
+  @Override
+  public void action(Jugador jugador) {
+
+  }
+
 }

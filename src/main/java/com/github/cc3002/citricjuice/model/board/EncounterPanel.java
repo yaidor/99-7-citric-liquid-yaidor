@@ -10,4 +10,16 @@ public class EncounterPanel extends AbstractPanel{
   public EncounterPanel(int idpanel, Set<AbstractPanel> next, Set<Jugador> ocupado) {
     super(idpanel,next, ocupado);
   }
+
+  /**
+   * player encounter a wild unit
+   *
+   * @param jugador
+   *    is the player who encounters the wild unit
+   */
+
+  @Override
+  public void action(Jugador jugador) {
+
+  }
 }
