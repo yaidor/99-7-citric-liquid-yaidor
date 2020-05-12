@@ -10,9 +10,6 @@ public class DrawPanel extends AbstractPanel{
   public DrawPanel(int idpanel) {
     super(idpanel);
   }
-  public DrawPanel(int idpanel, Set<AbstractPanel> next, Set<Jugador> ocupado) {
-    super(idpanel,next, ocupado);
-  }
 
   /**
    * Draw a cart

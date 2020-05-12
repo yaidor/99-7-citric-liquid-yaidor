@@ -49,6 +49,23 @@ public class HomePanelTest {
   }
 
   @Test
+  public void playerPanelTest(){
+    final var expectedSuguri1 = new Jugador("JUGADOR", 4, 1, -1,2);
+    final var expectedSuguri2 = new Jugador("JUGADOR2", 4, 1, -1,2);
+    assertTrue(testHomePanel.getOcupado().isEmpty());
+    testHomePanel.addPla2Pan(expectedSuguri1);
+    assertEquals(1,testHomePanel.getOcupado().size());
+    testHomePanel.addPla2Pan(expectedSuguri2);
+    assertEquals(2,testHomePanel.getOcupado().size());
+    testHomePanel.addPla2Pan(expectedSuguri2);
+    assertEquals(2,testHomePanel.getOcupado().size());
+    assertEquals(Set.of(expectedSuguri1,expectedSuguri2),testHomePanel.getOcupado());
+    testHomePanel.leave(expectedSuguri1);
+    assertEquals(1,testHomePanel.getOcupado().size());
+    assertEquals(Set.of(expectedSuguri2),testHomePanel.getOcupado());
+  }
+
+  @Test
   public void homePanelTest() {
     assertEquals(suguri.getMaxHP(), suguri.getCurrentHP());
     testHomePanel.action(suguri);

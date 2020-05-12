@@ -49,6 +49,23 @@ public class DropPanelTest {
             testDropPanel.getNext());
   }
 
+  @Test
+  public void playerPanelTest(){
+    final var expectedSuguri1 = new Jugador("JUGADOR", 4, 1, -1,2);
+    final var expectedSuguri2 = new Jugador("JUGADOR2", 4, 1, -1,2);
+    assertTrue(testDropPanel.getOcupado().isEmpty());
+    testDropPanel.addPla2Pan(expectedSuguri1);
+    assertEquals(1,testDropPanel.getOcupado().size());
+    testDropPanel.addPla2Pan(expectedSuguri2);
+    assertEquals(2,testDropPanel.getOcupado().size());
+    testDropPanel.addPla2Pan(expectedSuguri2);
+    assertEquals(2,testDropPanel.getOcupado().size());
+    assertEquals(Set.of(expectedSuguri1,expectedSuguri2),testDropPanel.getOcupado());
+    testDropPanel.leave(expectedSuguri1);
+    assertEquals(1,testDropPanel.getOcupado().size());
+    assertEquals(Set.of(expectedSuguri2),testDropPanel.getOcupado());
+  }
+
   @RepeatedTest(100)
   public void dropPanelConsistencyTest() {
     int expectedStars = 30;

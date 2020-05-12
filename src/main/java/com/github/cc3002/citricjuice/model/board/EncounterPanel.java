@@ -7,9 +7,6 @@ public class EncounterPanel extends AbstractPanel{
   public EncounterPanel(int idpanel) {
     super(idpanel);
   }
-  public EncounterPanel(int idpanel, Set<AbstractPanel> next, Set<Jugador> ocupado) {
-    super(idpanel,next, ocupado);
-  }
 
   /**
    * player encounter a wild unit

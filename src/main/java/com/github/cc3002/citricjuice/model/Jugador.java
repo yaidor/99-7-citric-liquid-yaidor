@@ -26,8 +26,6 @@ public class Jugador extends AbstractContender{
     enemigo.addStars(this.getStars()/2);
     enemigo.addWins(2);
     this.reduceStarsBy(this.getStars()/2);
-    //debo perder la mitad de mis estrellas(y el enemigo ganarlas)
-    //debe ganar el enemigo 2 victorias
   }
 
   @Override
@@ -35,8 +33,6 @@ public class Jugador extends AbstractContender{
     enemigo.addStars(this.getStars()/2);
     enemigo.addWins(2);
     this.reduceStarsBy(this.getStars()/2);
-    //debo perder la mitad de mis estrellas(y el enemigo ganarlas)
-    //debe ganar el enemigo 2 victorias
   }
 
   @Override
@@ -44,14 +40,20 @@ public class Jugador extends AbstractContender{
     enemigo.addStars(this.getStars()/2);
     enemigo.addWins(2);
     this.reduceStarsBy(this.getStars()/2);
-    //debo perder la mitad de mis estrellas(y el enemigo ganarlas)
-    //debe ganar el enemigo 2 victorias
   }
 
+  /**
+   * Returns the current norma level
+   */
 
   public int getNormaLevel() {
     return this.normaLevel;
   }
+
+  /**
+   * Performs a norma clear action; the {@code norma} counter increases in 1.
+   */
+
   public void normaClear() {
     this.normaLevel += 1;
   }

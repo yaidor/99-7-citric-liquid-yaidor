@@ -10,9 +10,6 @@ public class DropPanel extends AbstractPanel{
   public DropPanel(int idpanel) {
     super(idpanel);
   }
-  public DropPanel(int idpanel, Set<AbstractPanel> next, java.util.Set<Jugador> ocupado) {
-    super(idpanel,next, ocupado);
-  }
 
   /**
    * reduce stars from target player

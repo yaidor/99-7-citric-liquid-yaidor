@@ -117,4 +117,33 @@ public class JugadorTest {
                     + "Test failed with random seed: " + testSeed);
   }
 
+  @RepeatedTest(100)
+  public void attack(){
+    final var matonAttac = new Jugador(MALON, 5, 100, 1, 1);
+    final var bossAttac = new Boss(MALON, 5, 100, 1, 1);
+    suguri.addStars(9);
+    bossAttac.addStars(10);
+    bossAttac.attack(suguri);
+    assertEquals(5,suguri.getStars());
+    assertEquals(14,bossAttac.getStars());
+    matonAttac.attack(bossAttac);
+    assertEquals(14,matonAttac.getStars());
+    assertEquals(3,matonAttac.getWins());
+  }
+  @RepeatedTest(50)
+  public void losses(){
+    final var loser1 = new Jugador("perdedor1", 4, 1, 0, 1);
+    final var loser2 = new Jugador("perdedor2", 4, 1, 0, 1);
+    final var loser3 = new Jugador("perdedor3", 4, 1, 0, 1);
+    final var megaBoss = new Boss("megaBoss", 100, 100, 100, 100);
+    final var megaJugador = new Jugador("megaJugador", 100, 100, 100, 100);
+    final var megaWild = new Wild("megaWild", 100, 100, 100, 100);
+    megaBoss.attack(loser1);
+    assertEquals(2,megaBoss.getWins());
+    megaJugador.attack(loser2);
+    assertEquals(2,megaJugador.getWins());
+    megaWild.attack(loser3);
+    assertEquals(2,megaWild.getWins());
+  }
+
 }

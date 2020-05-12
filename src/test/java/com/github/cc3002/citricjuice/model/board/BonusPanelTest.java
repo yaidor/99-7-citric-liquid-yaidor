@@ -47,6 +47,23 @@ public class BonusPanelTest {
             testBonusPanel.getNext());
   }
 
+  @Test
+  public void playerPanelTest(){
+    final var expectedSuguri1 = new Jugador("JUGADOR", 4, 1, -1,2);
+    final var expectedSuguri2 = new Jugador("JUGADOR2", 4, 1, -1,2);
+    assertTrue(testBonusPanel.getOcupado().isEmpty());
+    testBonusPanel.addPla2Pan(expectedSuguri1);
+    assertEquals(1,testBonusPanel.getOcupado().size());
+    testBonusPanel.addPla2Pan(expectedSuguri2);
+    assertEquals(2,testBonusPanel.getOcupado().size());
+    testBonusPanel.addPla2Pan(expectedSuguri2);
+    assertEquals(2,testBonusPanel.getOcupado().size());
+    assertEquals(Set.of(expectedSuguri1,expectedSuguri2),testBonusPanel.getOcupado());
+    testBonusPanel.leave(expectedSuguri1);
+    assertEquals(1,testBonusPanel.getOcupado().size());
+    assertEquals(Set.of(expectedSuguri2),testBonusPanel.getOcupado());
+  }
+
   @RepeatedTest(100)
   public void bonusPanelConsistencyTest() {
     int expectedStars = 0;

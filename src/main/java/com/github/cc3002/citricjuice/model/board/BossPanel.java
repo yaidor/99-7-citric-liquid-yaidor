@@ -10,10 +10,6 @@ public class BossPanel extends AbstractPanel{
   public BossPanel(int idpanel) {
     super(idpanel);
   }
-  public BossPanel(int idpanel, Set<AbstractPanel> next, Set<Jugador> ocupado) {
-    super(idpanel,next, ocupado);
-  }
-
   /**
    * is the action that confirms if a boss can appear
    * and combat him

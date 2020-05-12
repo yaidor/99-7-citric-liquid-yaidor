@@ -49,6 +49,23 @@ public class NeutralPanelTest {
   }
 
   @Test
+  public void playerPanelTest(){
+    final var expectedSuguri1 = new Jugador("JUGADOR", 4, 1, -1,2);
+    final var expectedSuguri2 = new Jugador("JUGADOR2", 4, 1, -1,2);
+    assertTrue(testNeutralPanel.getOcupado().isEmpty());
+    testNeutralPanel.addPla2Pan(expectedSuguri1);
+    assertEquals(1,testNeutralPanel.getOcupado().size());
+    testNeutralPanel.addPla2Pan(expectedSuguri2);
+    assertEquals(2,testNeutralPanel.getOcupado().size());
+    testNeutralPanel.addPla2Pan(expectedSuguri2);
+    assertEquals(2,testNeutralPanel.getOcupado().size());
+    assertEquals(Set.of(expectedSuguri1,expectedSuguri2),testNeutralPanel.getOcupado());
+    testNeutralPanel.leave(expectedSuguri1);
+    assertEquals(1,testNeutralPanel.getOcupado().size());
+    assertEquals(Set.of(expectedSuguri2),testNeutralPanel.getOcupado());
+  }
+
+  @Test
   public void neutralPanelTest() {
     final var expectedSuguri = suguri.copy();
     testNeutralPanel.action(suguri);

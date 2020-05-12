@@ -94,4 +94,33 @@ public class BossTest {
             roll + "is not in [1, 6]" + System.lineSeparator()
                     + "Test failed with random seed: " + testSeed);
   }
+
+  @RepeatedTest(100)
+  public void attack(){
+    final var matonAttac = new Jugador(MALON, 5, 100, 1, 1);
+    final var bossAttac = new Boss(MALON, 5, 100, 1, 1);
+    malote.addStars(9);
+    bossAttac.addStars(10);
+    bossAttac.attack(malote);
+    assertEquals(5,malote.getStars());
+    assertEquals(14,bossAttac.getStars());
+    matonAttac.attack(bossAttac);
+    assertEquals(14,matonAttac.getStars());
+    assertEquals(3,matonAttac.getWins());
+  }
+  @RepeatedTest(50)
+  public void losses(){
+    final var loser1 = new Boss("perdedor1", 4, 1, 0, 1);
+    final var loser2 = new Boss("perdedor2", 4, 1, 0, 1);
+    final var loser3 = new Boss("perdedor3", 4, 1, 0, 1);
+    final var megaBoss = new Boss("megaBoss", 100, 100, 100, 100);
+    final var megaJugador = new Jugador("megaJugador", 100, 100, 100, 100);
+    final var megaWild = new Wild("megaWild", 100, 100, 100, 100);
+    megaBoss.attack(loser1);
+    assertEquals(3,megaBoss.getWins());
+    megaJugador.attack(loser2);
+    assertEquals(3,megaJugador.getWins());
+    megaWild.attack(loser3);
+    assertEquals(3,megaWild.getWins());
+  }
 }

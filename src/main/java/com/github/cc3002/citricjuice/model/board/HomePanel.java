@@ -10,9 +10,6 @@ public class HomePanel extends AbstractPanel{
   public HomePanel(int idpanel) {
     super(idpanel);
   }
-  public HomePanel(int idpanel, Set<AbstractPanel> next, Set<Jugador> ocupado) {
-    super(idpanel,next, ocupado);
-  }
 
   /**
    * the player gets +1 hp

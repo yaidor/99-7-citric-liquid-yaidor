@@ -24,23 +24,6 @@ public abstract class AbstractPanel {
   }
 
   /**
-   * Creates a new panel.
-   *
-   * @param idpanel
-   *     the id of the panel.
-   * @param next
-   *     the set of next panles atatched to this one
-   * @param ocupado
-   *     the set of players on the panel
-   */
-
-  public AbstractPanel (int idpanel, Set<AbstractPanel> next,Set<Jugador> ocupado) {
-    this.idpanel = idpanel;
-    this.next = next;
-    this.ocupado = ocupado;
-  }
-
-  /**
    * Returns the set of players on the panel
    */
 

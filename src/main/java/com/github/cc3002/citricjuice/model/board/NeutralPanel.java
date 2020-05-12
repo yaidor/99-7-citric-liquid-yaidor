@@ -7,9 +7,6 @@ public class NeutralPanel extends AbstractPanel {
   public NeutralPanel(int idpanel) {
     super(idpanel);
   }
-  public NeutralPanel(int idpanel, Set<AbstractPanel> next, Set<Jugador> ocupado) {
-    super(idpanel,next, ocupado);
-  }
 
   /**
    * This action doesn't do anything
