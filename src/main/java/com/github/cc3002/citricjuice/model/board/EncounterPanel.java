@@ -8,6 +8,11 @@ public class EncounterPanel extends AbstractPanel{
     super(idpanel);
   }
 
+  @Override
+  public void addNextPanel(InterfacePanel panel) {
+
+  }
+
   /**
    * player encounter a wild unit
    *

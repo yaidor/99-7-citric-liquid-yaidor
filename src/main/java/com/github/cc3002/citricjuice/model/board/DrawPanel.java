@@ -11,6 +11,11 @@ public class DrawPanel extends AbstractPanel{
     super(idpanel);
   }
 
+  @Override
+  public void addNextPanel(InterfacePanel panel) {
+
+  }
+
   /**
    * Draw a cart
    *
