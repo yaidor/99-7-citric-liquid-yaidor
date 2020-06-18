@@ -4,9 +4,9 @@ import com.github.cc3002.citricjuice.model.Jugador;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class AbstractPanel implements InterfacePanel{
+public abstract class AbstractPanel implements IPanel {
   private int idpanel;
-  private Set<InterfacePanel> next;
+  private Set<IPanel> next;
   private Set<Jugador> ocupado;
 
   /**
@@ -35,7 +35,7 @@ public abstract class AbstractPanel implements InterfacePanel{
    * Returns the set of the next panels
    */
 
-  public Set<InterfacePanel> getNext() {
+  public Set<IPanel> getNext() {
     return this.next;
   }
 

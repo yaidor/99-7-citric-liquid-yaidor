@@ -3,7 +3,7 @@ package com.github.cc3002.citricjuice.model;
 
 import java.util.Random;
 
-public abstract class AbstractContender {
+public abstract class AbstractContender implements IContender {
   private final Random random;
   private final String name;
   private final int maxHP;

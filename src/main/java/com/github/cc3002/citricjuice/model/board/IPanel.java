@@ -3,11 +3,11 @@ package com.github.cc3002.citricjuice.model.board;
 import com.github.cc3002.citricjuice.model.Jugador;
 import java.util.Set;
 
-public interface InterfacePanel {
+public interface IPanel {
   Set<Jugador> getOcupado();
-  Set<InterfacePanel> getNext();
+  Set<IPanel> getNext();
   void addPla2Pan(Jugador jugador);
   void leave(Jugador jugador);
-  void addNextPanel(InterfacePanel panel);
+  void addNextPanel(IPanel panel);
   void action(Jugador jugador);
 }

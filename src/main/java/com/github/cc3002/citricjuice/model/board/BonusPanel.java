@@ -8,7 +8,7 @@ public class BonusPanel extends AbstractPanel{
   }
 
   @Override
-  public void addNextPanel(InterfacePanel panel) {
+  public void addNextPanel(IPanel panel) {
 
   }
 
