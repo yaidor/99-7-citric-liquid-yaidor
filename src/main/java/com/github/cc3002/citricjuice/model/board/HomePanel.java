@@ -7,11 +7,6 @@ public class HomePanel extends AbstractPanel{
     super(idpanel);
   }
 
-  @Override
-  public void addNextPanel(IPanel panel) {
-
-  }
-
   /**
    * the player gets +1 hp
    *

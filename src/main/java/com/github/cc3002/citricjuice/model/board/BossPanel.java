@@ -7,11 +7,6 @@ public class BossPanel extends AbstractPanel{
     super(idpanel);
   }
 
-  @Override
-  public void addNextPanel(IPanel panel) {
-
-  }
-
   /**
    * is the action that confirms if a boss can appear
    * and combat him

@@ -7,11 +7,6 @@ public class NeutralPanel extends AbstractPanel {
     super(idpanel);
   }
 
-  @Override
-  public void addNextPanel(IPanel panel) {
-
-  }
-
   /**
    * This action doesn't do anything
    */

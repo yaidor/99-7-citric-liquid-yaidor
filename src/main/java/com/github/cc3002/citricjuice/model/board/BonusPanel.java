@@ -7,11 +7,6 @@ public class BonusPanel extends AbstractPanel{
     super(idpanel);
   }
 
-  @Override
-  public void addNextPanel(IPanel panel) {
-
-  }
-
   /**
    * increases the player's stars
    *

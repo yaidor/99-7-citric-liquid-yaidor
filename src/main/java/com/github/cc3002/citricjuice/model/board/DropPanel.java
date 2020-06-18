@@ -7,11 +7,6 @@ public class DropPanel extends AbstractPanel{
     super(idpanel);
   }
 
-  @Override
-  public void addNextPanel(IPanel panel) {
-
-  }
-
   /**
    * reduce stars from target player
    *
