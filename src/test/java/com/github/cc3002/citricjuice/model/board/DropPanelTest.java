@@ -69,7 +69,7 @@ public class DropPanelTest {
   @RepeatedTest(100)
   public void dropPanelConsistencyTest() {
     int expectedStars = 30;
-    suguri.increaseStarsBy(30);
+    suguri.addStars(30);
     assertEquals(expectedStars, suguri.getStars());
     final var testRandom = new Random(testSeed);
     suguri.setSeed(testSeed);

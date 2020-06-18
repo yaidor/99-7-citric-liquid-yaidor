@@ -70,7 +70,7 @@ public abstract class AbstractPanel implements IPanel {
    *    is the panel to add to next panels
    */
 
-  public void addNextPanel(final AbstractPanel panel){
+  public void addNextPanel(final IPanel panel){
     this.next.add(panel);
   }
 

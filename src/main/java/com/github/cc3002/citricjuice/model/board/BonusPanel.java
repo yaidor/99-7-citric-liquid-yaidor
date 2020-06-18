@@ -21,6 +21,6 @@ public class BonusPanel extends AbstractPanel{
 
   @Override
   public void action(Jugador jugador) {
-    jugador.increaseStarsBy(jugador.roll() * Math.min(jugador.getNormaLevel(), 3));
+    jugador.addStars(jugador.roll() * Math.min(jugador.getNormaLevel(), 3));
   }
 }

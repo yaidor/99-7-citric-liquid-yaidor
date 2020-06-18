@@ -1,12 +1,6 @@
 package com.github.cc3002.citricjuice.model;
 
 public interface IContender {
-  void increaseStarsBy(int x);
-  int getStars();
-  int getWins();
-  void addWins(int i);
-  void setSeed(long seed);
-  int roll();
   String getName();
   int getMaxHP();
   int getAtk();
@@ -14,4 +8,21 @@ public interface IContender {
   int getEvd();
   int getCurrentHP();
   void setCurrentHP(int newHP);
+  int getStars();
+  void addStars(int amount);
+  void reduceStarsBy(int amount);
+  void setSeed(long seed);
+  int roll();
+  int getWins();
+  void addWins(int amount);
+  void attack(IContender enemigo);
+  boolean decision();
+  void defender(int attack);
+  void dodge(int attack);
+  void attackedByJugador(IContender jugador);
+  void attackedByBoss(IContender boss);
+  void attackedByWild(IContender wild);
+  void loseByJugador(IContender jugador);
+  void loseByBoss(IContender boss);
+  void loseByWild(IContender wild);
 }
