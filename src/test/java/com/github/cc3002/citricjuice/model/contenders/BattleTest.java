@@ -1,5 +1,8 @@
-package com.github.cc3002.citricjuice.model;
+package com.github.cc3002.citricjuice.model.contenders;
 
+import com.github.cc3002.citricjuice.model.contenders.Boss;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
+import com.github.cc3002.citricjuice.model.contenders.Wild;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

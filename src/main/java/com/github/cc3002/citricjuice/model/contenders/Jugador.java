@@ -1,4 +1,4 @@
-package com.github.cc3002.citricjuice.model;
+package com.github.cc3002.citricjuice.model.contenders;
 
 public class Jugador extends AbstractPlayer{
   public Jugador(String name, int hp, int atk, int def, int evd) {
