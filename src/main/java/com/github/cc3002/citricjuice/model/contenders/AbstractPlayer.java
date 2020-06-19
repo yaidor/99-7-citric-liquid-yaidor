@@ -28,6 +28,42 @@ public abstract class AbstractPlayer extends AbstractContender{
   }
 
   /**
+   * sets the attack parameter of a player,
+   * with a minimum of 0 attack
+   *
+   * @param amount
+   *    is the new possible attack
+   */
+
+  public void setAtk(int amount){
+    this.atk = (Math.max(amount, 0));
+  }
+
+  /**
+   * sets the defense parameter of a player,
+   * with a minimum of 0 defense
+   *
+   * @param amount
+   *    is the new possible defense
+   */
+
+  public void setDef(int amount){
+    this.def = (Math.max(0, amount));
+  }
+
+  /**
+   * sets the evasion parameter of a player,
+   * with a minimum of 0 evasion
+   *
+   * @param amount
+   *    is the new possible evasion
+   */
+
+  public void setEvd(int amount){
+    this.evd = (Math.max(amount, 0));
+  }
+
+  /**
    * Returns the current norma level
    */
 

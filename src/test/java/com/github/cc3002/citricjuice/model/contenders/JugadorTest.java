@@ -57,6 +57,34 @@ public class JugadorTest {
   }
 
   @Test
+  public void atkTest(){
+    assertEquals(1,suguri.getAtk());
+    suguri.setAtk(3);
+    assertEquals(3,suguri.getAtk());
+    suguri.setAtk(-1);
+    assertEquals(0,suguri.getAtk());
+
+  }
+
+  @Test
+  public void defTest(){
+    assertEquals(-1,suguri.getDef());
+    suguri.setDef(3);
+    assertEquals(3,suguri.getDef());
+    suguri.setDef(-1);
+    assertEquals(0,suguri.getDef());
+  }
+
+  @Test
+  public void defEvd(){
+    assertEquals(2,suguri.getEvd());
+    suguri.setEvd(3);
+    assertEquals(3,suguri.getEvd());
+    suguri.setEvd(-1);
+    assertEquals(0,suguri.getEvd());
+  }
+
+  @Test
   public void starsTest(){
     assertEquals(0, suguri.getStars());
     suguri.addStars(4);

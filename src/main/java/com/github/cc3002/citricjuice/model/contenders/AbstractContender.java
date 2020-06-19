@@ -7,9 +7,9 @@ public abstract class AbstractContender implements IContender {
   private final Random random;
   private final String name;
   private final int maxHP;
-  private final int atk;
-  private final int def;
-  private final int evd;
+  protected int atk;
+  protected int def;
+  protected int evd;
   private int stars;
   private int win;
   private int currentHP;
@@ -69,8 +69,7 @@ public abstract class AbstractContender implements IContender {
   }
 
   /**
-   * Set's the seed for this player's random number generator.
-   * <p>
+   * Sets the seed for this player's random number generator.
    * The random number generator is used for taking non-deterministic decisions, this method is
    * declared to avoid non-deterministic behaviour while testing the code.
    */
@@ -180,7 +179,7 @@ public abstract class AbstractContender implements IContender {
   }
 
   /**
-   * de player dodges and verify if the dodges is a
+   * the player dodges and verify if the dodges is a
    * success or a failure
    *
    * @param attack
