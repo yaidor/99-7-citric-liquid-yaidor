@@ -23,6 +23,10 @@ public abstract class AbstractPanel implements IPanel {
     this.ocupado = new HashSet<>();
   }
 
+  public int getIdpanel(){
+    return this.idpanel;
+  }
+
   /**
    * Returns the set of players on the panel
    */
@@ -71,7 +75,9 @@ public abstract class AbstractPanel implements IPanel {
    */
 
   public void addNextPanel(final IPanel panel){
-    this.next.add(panel);
+    if (this.idpanel != panel.getIdpanel()){
+      this.next.add(panel);
+    }
   }
 
   /**

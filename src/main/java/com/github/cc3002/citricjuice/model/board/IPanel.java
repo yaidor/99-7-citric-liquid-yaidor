@@ -4,6 +4,7 @@ import com.github.cc3002.citricjuice.model.contenders.Jugador;
 import java.util.Set;
 
 public interface IPanel {
+  int getIdpanel();
   Set<Jugador> getOcupado();
   Set<IPanel> getNext();
   void addPla2Pan(Jugador jugador);
