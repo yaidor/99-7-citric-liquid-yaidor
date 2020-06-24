@@ -1,5 +1,9 @@
 package com.github.cc3002.citricjuice.model.contenders;
 
+import com.github.cc3002.citricjuice.model.board.BonusPanel;
+import com.github.cc3002.citricjuice.model.board.DropPanel;
+import com.github.cc3002.citricjuice.model.board.DropPanelTest;
+import com.github.cc3002.citricjuice.model.board.HomePanel;
 import com.github.cc3002.citricjuice.model.contenders.Boss;
 import com.github.cc3002.citricjuice.model.contenders.Jugador;
 import com.github.cc3002.citricjuice.model.contenders.Wild;
@@ -91,6 +95,19 @@ public class JugadorTest {
     assertEquals(4, suguri.getStars());
     suguri.addStars(-8);
     assertEquals(4, suguri.getStars());
+  }
+
+  @Test
+  public void whereAreWeTest(){
+    final var currentPanel = new HomePanel(2);
+    final var moveToPanel = new BonusPanel(1);
+    final var lastPanel = new DropPanel(3);
+    suguri.setPanel(currentPanel);
+    assertEquals(currentPanel,suguri.getPanel());
+    suguri.setPanel(moveToPanel);
+    assertEquals(moveToPanel,suguri.getPanel());
+    suguri.setPanel(lastPanel);
+    assertEquals(lastPanel,suguri.getPanel());
   }
 
   @Test

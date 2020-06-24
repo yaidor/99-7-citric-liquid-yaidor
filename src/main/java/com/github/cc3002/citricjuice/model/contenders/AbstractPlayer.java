@@ -1,7 +1,10 @@
 package com.github.cc3002.citricjuice.model.contenders;
 
+import com.github.cc3002.citricjuice.model.board.IPanel;
+
 public abstract class AbstractPlayer extends AbstractContender{
   private int normaLevel;
+  private IPanel panel;
   /**
    * Creates a new character.
    *
@@ -14,6 +17,7 @@ public abstract class AbstractPlayer extends AbstractContender{
   public AbstractPlayer(String name, int hp, int atk, int def, int evd) {
     super(name, hp, atk, def, evd);
     this.normaLevel = 1;
+    this.panel = null;
   }
   /**
    * This is the decision to dodge or defend
@@ -77,6 +81,25 @@ public abstract class AbstractPlayer extends AbstractContender{
 
   public void normaClear() {
     this.normaLevel += 1;
+  }
+
+  /**
+   * sets the current panel of a player
+   *
+   * @param panel
+   *    is the panel that is going to be set to the player
+   */
+
+  public void setPanel(IPanel panel){
+    this.panel=panel;
+  }
+
+  /**
+   * Returns the current panel of the player
+   */
+
+  public IPanel getPanel(){
+    return this.panel;
   }
 
 }
