@@ -5,6 +5,7 @@ import com.github.cc3002.citricjuice.model.board.IPanel;
 public abstract class AbstractPlayer extends AbstractContender{
   private int normaLevel;
   private IPanel panel;
+  private boolean normaGoal;
   /**
    * Creates a new character.
    *
@@ -18,6 +19,7 @@ public abstract class AbstractPlayer extends AbstractContender{
     super(name, hp, atk, def, evd);
     this.normaLevel = 1;
     this.panel = null;
+    this.normaGoal = false;
   }
   /**
    * This is the decision to dodge or defend
@@ -102,4 +104,23 @@ public abstract class AbstractPlayer extends AbstractContender{
     return this.panel;
   }
 
+  /**
+   * Sets the norma goal
+   *
+   * @param valor
+   *      is the boolean goal that represents
+   *      if the player wants to reach one goal
+   *      or the other goal
+   *
+   * false is going to be the goal of stars and
+   * true is the value to represents the goal fo wins
+   */
+
+  public void setNormaGoal(boolean valor){
+    this.normaGoal = valor;
+  }
+
+  public boolean getNormaGoal(){
+    return this.normaGoal;
+  }
 }

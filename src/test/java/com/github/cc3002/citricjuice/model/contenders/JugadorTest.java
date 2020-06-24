@@ -118,6 +118,13 @@ public class JugadorTest {
   }
 
   @Test
+  public void setNormaGoal(){
+    assertEquals(false,suguri.getNormaGoal());
+    suguri.setNormaGoal(true);
+    assertEquals(true,suguri.getNormaGoal());
+  }
+
+  @Test
   public void copyTest() {
     final var expectedSuguri = new Jugador(JUGADOR, 4, 1, -1, 2);
     final var actualSuguri = suguri.copy();

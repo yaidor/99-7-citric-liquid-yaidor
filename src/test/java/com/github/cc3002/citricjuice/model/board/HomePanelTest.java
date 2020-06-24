@@ -75,4 +75,11 @@ public class HomePanelTest {
     testHomePanel.action(suguri);
     assertEquals(2, suguri.getCurrentHP());
   }
+
+  @Test
+  public void ownership(){
+    assertEquals(null,testHomePanel.getOwner());
+    testHomePanel.setOwner(suguri);
+    assertEquals(suguri,testHomePanel.getOwner());
+  }
 }
