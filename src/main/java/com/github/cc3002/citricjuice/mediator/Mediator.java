@@ -338,8 +338,7 @@ public class Mediator {
      * Returns the player's norma goal.
      */
     public NormaGoal getNormaGoal() {
-      // (!) Implement this
-      return null;
+      return unit.getNormaGoal();
     }
 
     /**

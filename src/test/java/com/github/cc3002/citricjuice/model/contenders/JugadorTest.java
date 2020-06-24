@@ -1,5 +1,6 @@
 package com.github.cc3002.citricjuice.model.contenders;
 
+import com.github.cc3002.citricjuice.model.NormaGoal;
 import com.github.cc3002.citricjuice.model.board.BonusPanel;
 import com.github.cc3002.citricjuice.model.board.DropPanel;
 import com.github.cc3002.citricjuice.model.board.DropPanelTest;
@@ -119,9 +120,9 @@ public class JugadorTest {
 
   @Test
   public void setNormaGoal(){
-    assertEquals(false,suguri.getNormaGoal());
-    suguri.setNormaGoal(true);
-    assertEquals(true,suguri.getNormaGoal());
+    assertEquals(NormaGoal.STARS,suguri.getNormaGoal());
+    suguri.setNormaGoal(NormaGoal.WINS);
+    assertEquals(NormaGoal.WINS,suguri.getNormaGoal());
   }
 
   @Test
