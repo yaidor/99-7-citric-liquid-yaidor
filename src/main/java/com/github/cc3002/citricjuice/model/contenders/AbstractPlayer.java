@@ -7,6 +7,8 @@ public abstract class AbstractPlayer extends AbstractContender{
   private int normaLevel;
   private IPanel panel;
   private NormaGoal normaGoal;
+  private boolean myTurn;
+
   /**
    * Creates a new character.
    *
@@ -16,12 +18,15 @@ public abstract class AbstractPlayer extends AbstractContender{
    * @param def  the base defense of the character.
    * @param evd  the base evasion of the character.
    */
+
   public AbstractPlayer(String name, int hp, int atk, int def, int evd) {
     super(name, hp, atk, def, evd);
     this.normaLevel = 1;
     this.panel = null;
     this.normaGoal = NormaGoal.STARS;
+    this.myTurn = false;
   }
+
   /**
    * This is the decision to dodge or defend
    * and it depends on the type of contender we are
@@ -121,7 +126,28 @@ public abstract class AbstractPlayer extends AbstractContender{
     this.normaGoal = valor;
   }
 
+  /**
+   * Returns the current norma goal
+   */
+
   public NormaGoal getNormaGoal(){
     return this.normaGoal;
+  }
+
+  /**
+   * sets the turn as true, to confirm that is the turn of
+   * the player
+   */
+
+  public void setMyTurn(boolean valor){
+    this.myTurn = valor;
+  }
+
+  /**
+   * Returns the value of the turn.
+   */
+
+  public boolean getMyTurn(){
+    return this.myTurn;
   }
 }

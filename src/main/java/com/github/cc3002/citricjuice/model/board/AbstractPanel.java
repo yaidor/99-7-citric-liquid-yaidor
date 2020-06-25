@@ -86,6 +86,8 @@ public abstract class AbstractPanel implements IPanel {
 
   public abstract void action(final Jugador jugador);
 
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;

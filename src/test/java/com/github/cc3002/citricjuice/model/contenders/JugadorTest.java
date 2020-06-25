@@ -126,6 +126,13 @@ public class JugadorTest {
   }
 
   @Test
+  public void turnTest(){
+    assertEquals(false, suguri.getMyTurn());
+    suguri.setMyTurn(true);
+    assertEquals(true,suguri.getMyTurn());
+  }
+
+  @Test
   public void copyTest() {
     final var expectedSuguri = new Jugador(JUGADOR, 4, 1, -1, 2);
     final var actualSuguri = suguri.copy();
