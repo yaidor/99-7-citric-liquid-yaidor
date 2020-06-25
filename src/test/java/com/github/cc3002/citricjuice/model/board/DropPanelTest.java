@@ -39,13 +39,16 @@ public class DropPanelTest {
     assertTrue(testDropPanel.getNext().isEmpty());
     final var expectedDroPanel1 = new DropPanel(2);
     final var expectedDroPanel2 = new DropPanel(3);
+    final var expectedDroPanel3 = new DropPanel(4);
     testDropPanel.addNextPanel(expectedDroPanel1);
     assertEquals(1, testDropPanel.getNext().size());
     testDropPanel.addNextPanel(expectedDroPanel2);
+    assertEquals(1, testDropPanel.getNext().size());
+    testDropPanel.addNextPanel(expectedDroPanel3);
     assertEquals(2, testDropPanel.getNext().size());
-    testDropPanel.addNextPanel(expectedDroPanel2);
+    testDropPanel.addNextPanel(expectedDroPanel3);
     assertEquals(2, testDropPanel.getNext().size());
-    assertEquals(Set.of(expectedDroPanel1, expectedDroPanel2),
+    assertEquals(Set.of(expectedDroPanel1, expectedDroPanel3),
             testDropPanel.getNext());
   }
 
