@@ -79,6 +79,7 @@ public class GameController {
   }
 
   public Jugador getTurnOwner(){
+    getChapter();
     Jugador jugador = totalPlayers.get(turno-1-(4*(chapter-1)));
     if (turno == 1){
       jugador.setMyTurn(true);
@@ -109,19 +110,21 @@ public class GameController {
     Jugador jugador = getTurnOwner();
     int res = jugador.roll();
     IPanel panel = jugador.getPanel();
-    panel.leave(jugador);
     movingPlayer(jugador, res, panel);
   }
 
   private void movingPlayer(Jugador jugador, int res, IPanel panel) {
     if (res == 0){
+      jugador.getPanel().leave(jugador);
       jugador.setPanel(panel);
+      panel.addPla2Pan(jugador);
       return;
     }
     Set<Jugador> jugadores = panel.getOcupado();
     if (jugadores.size()>0 && jugador.getPanel() != panel){
       boolean wantFight = wantToFight(jugadores);
       if (wantFight){
+        jugador.getPanel().leave(jugador);
         jugador.setPanel(panel);
         panel.addPla2Pan(jugador);
         return;
@@ -131,6 +134,7 @@ public class GameController {
       if(((HomePanel) panel).getOwner()==jugador) {
         boolean wantHome = wantHome();
         if (wantHome) {
+          jugador.getPanel().leave(jugador);
           jugador.setPanel(panel);
           panel.addPla2Pan(jugador);
           return;
@@ -146,6 +150,7 @@ public class GameController {
     IPanel dest_panel = panelList.get(0);
     if (n>1){
       dest_panel = desition(panelList);
+      jugador.getPanel().leave(jugador);
       jugador.setPanel(panel);
       panel.addPla2Pan(jugador);
       return;
