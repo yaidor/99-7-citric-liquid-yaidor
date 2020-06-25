@@ -118,6 +118,7 @@ public class GameController {
       jugador.getPanel().leave(jugador);
       jugador.setPanel(panel);
       panel.addPla2Pan(jugador);
+      panel.action(jugador);
       return;
     }
     Set<Jugador> jugadores = panel.getOcupado();
@@ -127,6 +128,7 @@ public class GameController {
         jugador.getPanel().leave(jugador);
         jugador.setPanel(panel);
         panel.addPla2Pan(jugador);
+        panel.action(jugador);
         return;
       }
     }
@@ -137,6 +139,7 @@ public class GameController {
           jugador.getPanel().leave(jugador);
           jugador.setPanel(panel);
           panel.addPla2Pan(jugador);
+          panel.action(jugador);
           return;
         }
       }
@@ -153,6 +156,7 @@ public class GameController {
       jugador.getPanel().leave(jugador);
       jugador.setPanel(panel);
       panel.addPla2Pan(jugador);
+      panel.action(jugador);
       return;
     }
     res = res-1;

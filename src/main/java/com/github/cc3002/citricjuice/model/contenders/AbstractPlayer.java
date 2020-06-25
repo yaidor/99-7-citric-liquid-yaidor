@@ -150,4 +150,44 @@ public abstract class AbstractPlayer extends AbstractContender{
   public boolean getMyTurn(){
     return this.myTurn;
   }
+
+  public void normaCheck(){
+    NormaGoal goal = this.getNormaGoal();
+    if (goal == NormaGoal.STARS){
+      this.checkNormaStars();
+    }
+    else {
+      this.checkNormaWins();
+    }
+  }
+
+  protected void checkNormaWins(){
+    int level = this.getNormaLevel();
+    int need = 0;
+    for (int x = 1; x<level; x++){
+      need = need + (x+1);
+    }
+    if (need <= this.getWins()){
+      this.normaClear();
+    }
+  }
+
+  protected void checkNormaStars(){
+    int level = this.getNormaLevel();
+    if(level == 5 && this.getStars() >= 200) {
+      this.normaClear();
+    }
+    if(level == 4 && this.getStars() >= 120) {
+      this.normaClear();
+    }
+    if(level == 3 && this.getStars() >= 70) {
+      this.normaClear();
+    }
+    if(level == 2 && this.getStars() >= 30) {
+      this.normaClear();
+    }
+    if(level == 1 && this.getStars() >= 10) {
+      this.normaClear();
+    }
+  }
 }

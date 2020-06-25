@@ -169,7 +169,6 @@ public class Mediator {
     return new MediatorPlayer<>(controller.getTurnOwner());
   }
 
-
   /**
    * Sets a player's home panel.
    */
