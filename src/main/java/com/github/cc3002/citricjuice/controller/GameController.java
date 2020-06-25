@@ -14,11 +14,23 @@ public class GameController {
   int turno = 1;
   int chapter = 1;
 
+  /**
+   * Creates a BonusPanel
+   * @param id
+   *    id is the value to tag a panel
+   */
+
   public IPanel createBonusPanel(int id){
     BonusPanel panel = new BonusPanel(id);
     totalPanels.add(panel);
     return panel;
   }
+
+  /**
+   * Creates a BossPanel
+   * @param id
+   *    id is the value to tag a panel
+   */
 
   public IPanel createBossPanel(int id) {
     BossPanel panel = new BossPanel(id);
@@ -26,17 +38,35 @@ public class GameController {
     return panel;
   }
 
+  /**
+   * Creates a DropPanel
+   * @param id
+   *    id is the value to tag a panel
+   */
+
   public IPanel createDropPanel(int id) {
     DropPanel panel = new DropPanel(id);
     totalPanels.add(panel);
     return panel;
   }
 
+  /**
+   * Creates a EncounterPanel
+   * @param id
+   *    id is the value to tag a panel
+   */
+
   public IPanel createEncounterPanel(int id) {
     EncounterPanel panel = new EncounterPanel(id);
     totalPanels.add(panel);
     return panel;
   }
+
+  /**
+   * Creates a HomePanel
+   * @param id
+   *    id is the value to tag a panel
+   */
 
   public IPanel createHomePanel(int id) {
     HomePanel panel = new HomePanel(id);
