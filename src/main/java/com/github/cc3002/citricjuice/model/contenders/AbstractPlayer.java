@@ -153,6 +153,11 @@ public abstract class AbstractPlayer extends AbstractContender{
     return this.myTurn;
   }
 
+  /**
+   * checks if the player can level up his norma level
+   * knowing the norma goal of the player
+   */
+
   public void normaCheck(){
     NormaGoal goal = this.getNormaGoal();
     if (goal == NormaGoal.STARS){
@@ -162,6 +167,11 @@ public abstract class AbstractPlayer extends AbstractContender{
       this.checkNormaWins();
     }
   }
+
+  /**
+   * checks if the player can level up his norma level knowing
+   * that the goal was WINS
+   */
 
   protected void checkNormaWins(){
     int level = this.getNormaLevel();
@@ -176,6 +186,11 @@ public abstract class AbstractPlayer extends AbstractContender{
       this.normaClear();
     }
   }
+
+  /**
+   * checks if the player can level up his norma level knowing
+   * that the goal was STARS
+   */
 
   protected void checkNormaStars(){
     int level = this.getNormaLevel();
@@ -196,9 +211,21 @@ public abstract class AbstractPlayer extends AbstractContender{
     }
   }
 
+  /**
+   * Returns the recovery value, this value is the number
+   * of chapter has been knock up the player
+   */
+
   public int getRecovery(){
     return this.recovery;
   }
+
+  /**
+   * sets the value of recovery
+   * @param amount
+   *      amount is going to be the new value
+   *      of recovery, with a minimum of 0
+   */
 
   public void setRecovery(int amount){
     this.recovery = (Math.max(amount, 0));
