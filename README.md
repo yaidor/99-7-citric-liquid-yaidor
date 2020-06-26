@@ -72,6 +72,10 @@ Los estados que podemos encontrar son los siguientes:
   - Aún no se realiza un límite de "next panels" ya que no tengo infromación de que exista un límite, puede ser que los paneles "teletransporten" a los jugadores a otros paneles.
   - Así mismo no se realiza límite para personajes en un panel, aún cuando el juego no admite a más de 4 jugadores según enunciado. 
   - En un futuro se plantea editar paneles para que puedan aceptar tanto jugadores como Wild Units y Boss, de esta manera poder tener un lugar estátito para estos "contenders."
+
+# Supuestos y más supuestos
+
+Para esta entrega se usa el metodo del jugador llamado `jugador.roll()` que básicamente lanza un dado entregando un resultado aleatorio entre 1 y 6. Además se asume que habrá forma de testear exceptions en un futuro para poder mejorar los patrones de diseño.
   
 
   [df1]: <https://www.jetbrains.com/idea/>
