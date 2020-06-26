@@ -136,6 +136,11 @@ public class GameController {
     }
   }
 
+  public void drawCard(){
+    turn.move();
+    movePlayer();
+  }
+
   public void startTurn(){
     Jugador jugador = getTurnOwner();
     if (jugador.getCurrentHP() == 0){
@@ -144,7 +149,7 @@ public class GameController {
     }
     else{
       turn.notKO();
-
+      drawCard();
     }
   }
 
@@ -161,7 +166,7 @@ public class GameController {
     inicio.setMyTurn(true);
     int chap = getChapter();
     try{
-    turn.end();
+      turn.end();
     }
     catch (Exception e){
 
@@ -186,6 +191,12 @@ public class GameController {
       jugador.setPanel(panel);
       panel.addPla2Pan(jugador);
       panel.action(jugador);
+      try {
+        turn.stayPanel();
+      }
+      catch (Exception e){
+
+      }
       return;
     }
     Set<Jugador> jugadores = panel.getOcupado();
@@ -235,6 +246,12 @@ public class GameController {
   }
 
   private boolean wantToFight(Set<Jugador> jugadores) {
+    try {
+      turn.wantFight();
+    }
+    catch (Exception e){
+      
+    }
     return true;
   }
 

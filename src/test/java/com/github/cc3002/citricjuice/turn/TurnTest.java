@@ -25,6 +25,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.isKO();
     assertFalse(turn.isStart());
     assertTrue(turn.isIsKO());
@@ -37,6 +38,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -52,6 +54,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.isKO();
     assertFalse(turn.isStart());
     assertTrue(turn.isIsKO());
@@ -64,6 +67,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.endRecovery();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -76,6 +80,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertTrue(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.start();
     assertTrue(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -88,6 +93,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.notKO();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -100,6 +106,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.playCard();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -112,6 +119,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.move();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -124,6 +132,33 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
+    turn.wantHome();
+    assertFalse(turn.isStart());
+    assertFalse(turn.isIsKO());
+    assertFalse(turn.isNotKO());
+    assertFalse(turn.isPlayCard());
+    assertFalse(turn.isMove());
+    assertFalse(turn.isWantFight());
+    assertFalse(turn.isFighting());
+    assertFalse(turn.isDOrD());
+    assertFalse(turn.isPath());
+    assertFalse(turn.isStayPanel());
+    assertFalse(turn.isEnd());
+    assertTrue(turn.isWantHome());
+    turn.noHome();
+    assertFalse(turn.isStart());
+    assertFalse(turn.isIsKO());
+    assertFalse(turn.isNotKO());
+    assertFalse(turn.isPlayCard());
+    assertTrue(turn.isMove());
+    assertFalse(turn.isWantFight());
+    assertFalse(turn.isFighting());
+    assertFalse(turn.isDOrD());
+    assertFalse(turn.isPath());
+    assertFalse(turn.isStayPanel());
+    assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.path();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -136,6 +171,7 @@ public class TurnTest {
     assertTrue(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.backToTrack();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -148,6 +184,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.wantFight();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -160,6 +197,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.noFight();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -172,6 +210,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.wantFight();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -184,6 +223,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.fighting();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -196,6 +236,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.dOrD();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -208,6 +249,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.decided();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -220,6 +262,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.endFight();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -232,6 +275,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertTrue(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.end();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
@@ -244,6 +288,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertTrue(turn.isEnd());
+    assertFalse(turn.isWantHome());
     turn.start();
     turn.notKO();
     turn.playCard();
@@ -260,6 +305,38 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertTrue(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
+    turn.end();
+    turn.start();
+    turn.notKO();
+    turn.playCard();
+    turn.move();
+    turn.wantHome();
+    assertFalse(turn.isStart());
+    assertFalse(turn.isIsKO());
+    assertFalse(turn.isNotKO());
+    assertFalse(turn.isPlayCard());
+    assertFalse(turn.isMove());
+    assertFalse(turn.isWantFight());
+    assertFalse(turn.isFighting());
+    assertFalse(turn.isDOrD());
+    assertFalse(turn.isPath());
+    assertFalse(turn.isStayPanel());
+    assertFalse(turn.isEnd());
+    assertTrue(turn.isWantHome());
+    turn.home();
+    assertFalse(turn.isStart());
+    assertFalse(turn.isIsKO());
+    assertFalse(turn.isNotKO());
+    assertFalse(turn.isPlayCard());
+    assertFalse(turn.isMove());
+    assertFalse(turn.isWantFight());
+    assertFalse(turn.isFighting());
+    assertFalse(turn.isDOrD());
+    assertFalse(turn.isPath());
+    assertTrue(turn.isStayPanel());
+    assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -278,6 +355,9 @@ public class TurnTest {
     turn.decided();
     turn.stayPanel();
     turn.end();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertTrue(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -290,6 +370,7 @@ public class TurnTest {
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
   }
+
   @Test
   public void noTransitionKOTest(){
     turn.isKO();
@@ -309,6 +390,9 @@ public class TurnTest {
     turn.decided();
     turn.stayPanel();
     turn.end();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertTrue(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -320,6 +404,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -341,6 +426,9 @@ public class TurnTest {
     turn.decided();
     turn.stayPanel();
     turn.end();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertTrue(turn.isNotKO());
@@ -352,6 +440,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -374,6 +463,9 @@ public class TurnTest {
     turn.decided();
     turn.stayPanel();
     turn.end();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -385,6 +477,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -406,6 +499,8 @@ public class TurnTest {
     turn.endFight();
     turn.decided();
     turn.end();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -417,6 +512,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -441,6 +537,9 @@ public class TurnTest {
     turn.decided();
     turn.stayPanel();
     turn.end();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -452,6 +551,44 @@ public class TurnTest {
     assertTrue(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
+  }
+
+  @Test
+  public void noTransitionWantHomeTest() {
+    turn.notKO();
+    turn.playCard();
+    turn.move();
+    turn.wantHome();
+
+    turn.start();
+    turn.isKO();
+    turn.notKO();
+    turn.endRecovery();
+    turn.playCard();
+    turn.move();
+    turn.path();
+    turn.wantFight();
+    turn.noFight();
+    turn.fighting();
+    turn.dOrD();
+    turn.endFight();
+    turn.decided();
+    turn.stayPanel();
+    turn.end();
+    turn.path();
+    assertFalse(turn.isStart());
+    assertFalse(turn.isIsKO());
+    assertFalse(turn.isNotKO());
+    assertFalse(turn.isPlayCard());
+    assertFalse(turn.isMove());
+    assertFalse(turn.isWantFight());
+    assertFalse(turn.isFighting());
+    assertFalse(turn.isDOrD());
+    assertFalse(turn.isPath());
+    assertFalse(turn.isStayPanel());
+    assertFalse(turn.isEnd());
+    assertTrue(turn.isWantHome());
   }
 
   @Test
@@ -475,6 +612,9 @@ public class TurnTest {
     turn.decided();
     turn.stayPanel();
     turn.end();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -486,6 +626,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -510,6 +651,9 @@ public class TurnTest {
     turn.decided();
     turn.stayPanel();
     turn.end();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -521,6 +665,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -547,6 +692,9 @@ public class TurnTest {
     turn.endFight();
     turn.stayPanel();
     turn.end();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -558,6 +706,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -584,6 +733,9 @@ public class TurnTest {
     turn.endFight();
     turn.decided();
     turn.stayPanel();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -595,6 +747,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertTrue(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 
   @Test
@@ -619,6 +772,9 @@ public class TurnTest {
     turn.endFight();
     turn.decided();
     turn.stayPanel();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -630,6 +786,7 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertTrue(turn.isStayPanel());
     assertFalse(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
   @Test
   public void noTransitionEndTest() {
@@ -654,6 +811,9 @@ public class TurnTest {
     turn.decided();
     turn.stayPanel();
     turn.end();
+    turn.wantHome();
+    turn.noHome();
+    turn.home();
     assertFalse(turn.isStart());
     assertFalse(turn.isIsKO());
     assertFalse(turn.isNotKO());
@@ -665,5 +825,6 @@ public class TurnTest {
     assertFalse(turn.isPath());
     assertFalse(turn.isStayPanel());
     assertTrue(turn.isEnd());
+    assertFalse(turn.isWantHome());
   }
 }

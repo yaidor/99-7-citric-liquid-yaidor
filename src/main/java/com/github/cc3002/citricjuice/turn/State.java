@@ -67,6 +67,15 @@ public class State {
   void end(){
     return;
   }
+  void wantHome(){
+    return;
+  }
+  void noHome(){
+    return;
+  }
+  void home(){
+    return;
+  }
 
 
   public boolean isStart(){
@@ -100,6 +109,9 @@ public class State {
     return false;
   }
   public boolean isEnd(){
+    return false;
+  }
+  public boolean isWantHome(){
     return false;
   }
 }

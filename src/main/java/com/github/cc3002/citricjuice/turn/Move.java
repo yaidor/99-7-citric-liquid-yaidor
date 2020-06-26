@@ -11,6 +11,9 @@ public class Move extends State{
   void stayPanel(){
     this.changeState(new StayPanel());
   }
+  void wantHome(){
+    this.changeState(new WantHome());
+  }
 
   public boolean isMove() {
     return true;

@@ -60,6 +60,15 @@ public class Turn {
   public void end(){
     state.end();
   }
+  public void wantHome(){
+    state.wantHome();
+  }
+  public void noHome() {
+    state.noHome();
+  }
+  public void home() {
+    state.home();
+  }
 
   public boolean isStart(){
     return state.isStart();
@@ -94,4 +103,9 @@ public class Turn {
   public boolean isEnd(){
     return state.isEnd();
   }
+  public boolean isWantHome(){
+    return state.isWantHome();
+  }
+
+
 }
