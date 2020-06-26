@@ -43,26 +43,26 @@ una vez aquí buscamos la dirección de nuestro directorio con nombre `99-7-citr
     -Jugador
     -Wild
 
-#Controller
+# Controller
 
 Se ha agregado la clase controller, parte fundamental del poyecto ya que es uno de los participantes en el modelo MVC, siendo el controller la C del modelo, valga la redundancia.
 
-#Sate Pattern 
+# Sate Pattern 
 
 Se ha agregado el state patter como parte del proyecto para poder evaluar los turnos y las fases en las que se encuentran.
 Los estados que podemos encontrar son los siguientes:
-  -Start (el inicio, donde se le "otorga" el turno al jugador correspondiente)
-  -IsKO (si el jugador esta fuera de combate, en otras palabras HP = 0 y es la fase para realizar el recovery)
-  -NotKO (sigue en combate y estado donde se deben subir las estrellas)
-  -PlayCard (estado que el usuario decide jugar una carta o no)
-  -Move (estado en donde el jugador se mueve en el tablero)
-  -WantFight (estado de decisión donde el usuario puede elegir si combate o no combate al momento de encontrarse con un panel que tiene un jugador dentro)
-  -Path (otro estado de decisión donde el usuario elige podrá elegir el camino a tomar)
-  -WantHome (al igual que los dos estados anteriores, el usuario puede decidir si quiere seguir moviendose o detenerse en el home panel que esta curzando, siempre e y cuando sea "dueño" de el.
-  -StayPanel (estado terminal del movimiento/batalla/home fase donde la acción del panel es activada)
-  -Fihting (estado donde el jugador se enfrenta a otra unidad)
-  -DOrD (estado de decisón del usuario dentro de una batalla, DOrD es Defend Or Dodge, lo cual es lo que decide el usuario cuando es atacado de vuelta)
-  -End (estado que termina el turno y hace entrega del turno al siguiente jugador)
+  - Start (el inicio, donde se le "otorga" el turno al jugador correspondiente)
+  - IsKO (si el jugador esta fuera de combate, en otras palabras HP = 0 y es la fase para realizar el recovery)
+  - NotKO (sigue en combate y estado donde se deben subir las estrellas)
+  - PlayCard (estado que el usuario decide jugar una carta o no)
+  - Move (estado en donde el jugador se mueve en el tablero)
+  - WantFight (estado de decisión donde el usuario puede elegir si combate o no combate al momento de encontrarse con un panel que tiene un jugador dentro)
+  - Path (otro estado de decisión donde el usuario elige podrá elegir el camino a tomar)
+  - WantHome (al igual que los dos estados anteriores, el usuario puede decidir si quiere seguir moviendose o detenerse en el home panel que esta curzando, siempre e y cuando sea "dueño" de el.
+  - StayPanel (estado terminal del movimiento/batalla/home fase donde la acción del panel es activada)
+  - Fihting (estado donde el jugador se enfrenta a otra unidad)
+  - DOrD (estado de decisón del usuario dentro de una batalla, DOrD es Defend Or Dodge, lo cual es lo que decide el usuario cuando es atacado de vuelta)
+  - End (estado que termina el turno y hace entrega del turno al siguiente jugador)
   
   
 
