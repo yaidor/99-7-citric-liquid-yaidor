@@ -133,6 +133,38 @@ public class JugadorTest {
   }
 
   @Test
+  public void winsTest(){
+    assertEquals(NormaGoal.STARS,suguri.getNormaGoal());
+    suguri.setNormaGoal(NormaGoal.WINS);
+    suguri.addWins(4);
+    suguri.normaCheck();
+    assertEquals(1,suguri.getNormaLevel());
+    suguri.normaClear();
+    suguri.normaCheck();
+    assertEquals(3,suguri.getNormaLevel());
+    suguri.normaCheck();
+    assertEquals(3,suguri.getNormaLevel());
+    suguri.addWins(10);
+    suguri.normaCheck();
+    assertEquals(4,suguri.getNormaLevel());
+    suguri.normaCheck();
+    assertEquals(5,suguri.getNormaLevel());
+    suguri.normaCheck();
+    assertEquals(6,suguri.getNormaLevel());
+    suguri.normaCheck();
+    assertEquals(6,suguri.getNormaLevel());
+  }
+
+  @Test
+  public void recoveryTest(){
+    assertEquals(0,suguri.getRecovery());
+    suguri.setRecovery(-6);
+    assertEquals(0,suguri.getRecovery());
+    suguri.setRecovery(6);
+    assertEquals(6,suguri.getRecovery());
+  }
+
+  @Test
   public void copyTest() {
     final var expectedSuguri = new Jugador(JUGADOR, 4, 1, -1, 2);
     final var actualSuguri = suguri.copy();

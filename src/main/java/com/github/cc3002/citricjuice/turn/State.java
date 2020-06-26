@@ -11,57 +11,61 @@ public class State {
     turn.setState(state);
   }
 
+  /**
+   * for later
   void error(){
     throw new AssertionError("Wrong state");
   }
+   for later
+   */
 
   void start(){
-    error();
+    return;
   }
   void isKO(){
-    error();
+    return;
   }
   void endRecovery(){
-    error();
+    return;
   }
   void notKO(){
-    error();
+    return;
   }
   void playCard(){
-    error();
+    return;
   }
   void move(){
-    error();
+    return;
   }
   void path(){
-    error();
+    return;
   }
   void backToTrack(){
-    error();
+    return;
   }
   void wantFight(){
-    error();
+    return;
   }
   void noFight(){
-    error();
+    return;
   }
   void fighting(){
-    error();
+    return;
   }
   void dOrD(){
-    error();
+    return;
   }
   void decided() {
-    error();
+    return;
   }
   void endFight(){
-    error();
+    return;
   }
   void stayPanel(){
-    error();
+    return;
   }
   void end(){
-    error();
+    return;
   }
 
 

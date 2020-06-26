@@ -8,6 +8,7 @@ public abstract class AbstractPlayer extends AbstractContender{
   private IPanel panel;
   private NormaGoal normaGoal;
   private boolean myTurn;
+  private int recovery;
 
   /**
    * Creates a new character.
@@ -25,6 +26,7 @@ public abstract class AbstractPlayer extends AbstractContender{
     this.panel = null;
     this.normaGoal = NormaGoal.STARS;
     this.myTurn = false;
+    this.recovery = 0;
   }
 
   /**
@@ -163,6 +165,9 @@ public abstract class AbstractPlayer extends AbstractContender{
 
   protected void checkNormaWins(){
     int level = this.getNormaLevel();
+    if (level == 1){
+      return;
+    }
     int need = 0;
     for (int x = 1; x<level; x++){
       need = need + (x+1);
@@ -189,5 +194,13 @@ public abstract class AbstractPlayer extends AbstractContender{
     if(level == 1 && this.getStars() >= 10) {
       this.normaClear();
     }
+  }
+
+  public int getRecovery(){
+    return this.recovery;
+  }
+
+  public void setRecovery(int amount){
+    this.recovery = (Math.max(amount, 0));
   }
 }

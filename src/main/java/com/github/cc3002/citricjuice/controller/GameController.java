@@ -3,6 +3,8 @@ package com.github.cc3002.citricjuice.controller;
 import com.github.cc3002.citricjuice.model.NormaGoal;
 import com.github.cc3002.citricjuice.model.board.*;
 import com.github.cc3002.citricjuice.model.contenders.*;
+import com.github.cc3002.citricjuice.turn.Turn;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -13,6 +15,7 @@ public class GameController {
   List<Jugador> totalPlayers = new ArrayList<>();
   int turno = 1;
   int chapter = 1;
+  Turn turn;
 
   /**
    * Creates a BonusPanel
@@ -117,6 +120,34 @@ public class GameController {
     return jugador;
   }
 
+  public void recovery(){
+    Jugador jugador = getTurnOwner();
+    jugador.getRecovery();
+    if(jugador.roll()>=(6-jugador.getRecovery())){
+      jugador.setCurrentHP(jugador.getMaxHP());
+      jugador.setRecovery(0);
+      turn.endRecovery();
+      endTurn();
+    }
+    else{
+      jugador.setRecovery(jugador.getRecovery()+1);
+      turn.endRecovery();
+      endTurn();
+    }
+  }
+
+  public void startTurn(){
+    Jugador jugador = getTurnOwner();
+    if (jugador.getCurrentHP() == 0){
+      turn.isKO();
+      recovery();
+    }
+    else{
+      turn.notKO();
+
+    }
+  }
+
   public int getChapter(){
     chapter = ((turno-1)/4)+1;
     return chapter;
@@ -129,6 +160,12 @@ public class GameController {
     Jugador inicio = getTurnOwner();
     inicio.setMyTurn(true);
     int chap = getChapter();
+    try{
+    turn.end();
+    }
+    catch (Exception e){
+
+    }
   }
 
   public void setCurrPlayerNormaGoal(NormaGoal goal) {
