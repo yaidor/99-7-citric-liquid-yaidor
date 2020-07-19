@@ -1,10 +1,6 @@
 package com.github.cc3002.citricjuice.model.board;
 
-import com.github.cc3002.citricjuice.model.Jugador;
-import com.github.cc3002.citricjuice.model.Player;
-
-import java.util.ArrayList;
-import java.util.Set;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
 
 public class DropPanel extends AbstractPanel{
   public DropPanel(int idpanel) {

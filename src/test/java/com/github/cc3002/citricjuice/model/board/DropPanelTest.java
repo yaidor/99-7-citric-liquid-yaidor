@@ -1,6 +1,6 @@
 package com.github.cc3002.citricjuice.model.board;
 
-import com.github.cc3002.citricjuice.model.Jugador;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -39,13 +39,16 @@ public class DropPanelTest {
     assertTrue(testDropPanel.getNext().isEmpty());
     final var expectedDroPanel1 = new DropPanel(2);
     final var expectedDroPanel2 = new DropPanel(3);
+    final var expectedDroPanel3 = new DropPanel(4);
     testDropPanel.addNextPanel(expectedDroPanel1);
     assertEquals(1, testDropPanel.getNext().size());
     testDropPanel.addNextPanel(expectedDroPanel2);
+    assertEquals(1, testDropPanel.getNext().size());
+    testDropPanel.addNextPanel(expectedDroPanel3);
     assertEquals(2, testDropPanel.getNext().size());
-    testDropPanel.addNextPanel(expectedDroPanel2);
+    testDropPanel.addNextPanel(expectedDroPanel3);
     assertEquals(2, testDropPanel.getNext().size());
-    assertEquals(Set.of(expectedDroPanel1, expectedDroPanel2),
+    assertEquals(Set.of(expectedDroPanel1, expectedDroPanel3),
             testDropPanel.getNext());
   }
 
@@ -69,7 +72,7 @@ public class DropPanelTest {
   @RepeatedTest(100)
   public void dropPanelConsistencyTest() {
     int expectedStars = 30;
-    suguri.increaseStarsBy(30);
+    suguri.addStars(30);
     assertEquals(expectedStars, suguri.getStars());
     final var testRandom = new Random(testSeed);
     suguri.setSeed(testSeed);

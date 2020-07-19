@@ -1,6 +1,6 @@
 package com.github.cc3002.citricjuice.model.board;
 
-import com.github.cc3002.citricjuice.model.Jugador;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
 
 public class BonusPanel extends AbstractPanel{
   public BonusPanel(int idpanel) {
@@ -16,6 +16,6 @@ public class BonusPanel extends AbstractPanel{
 
   @Override
   public void action(Jugador jugador) {
-    jugador.increaseStarsBy(jugador.roll() * Math.min(jugador.getNormaLevel(), 3));
+    jugador.addStars(jugador.roll() * Math.min(jugador.getNormaLevel(), 3));
   }
 }

@@ -1,15 +1,15 @@
-package com.github.cc3002.citricjuice.model;
+package com.github.cc3002.citricjuice.model.contenders;
 
 
 import java.util.Random;
 
-public abstract class AbstractContender {
+public abstract class AbstractContender implements IContender {
   private final Random random;
   private final String name;
   private final int maxHP;
-  private final int atk;
-  private final int def;
-  private final int evd;
+  protected int atk;
+  protected int def;
+  protected int evd;
   private int stars;
   private int win;
   private int currentHP;
@@ -41,18 +41,6 @@ public abstract class AbstractContender {
   }
 
   /**
-   * encrease the playe's stars
-   *
-   * @param amount
-   *     the amount to encrease the stars
-   *
-   */
-
-  public void increaseStarsBy(final int amount) {
-    stars += amount;
-  }
-
-  /**
    * get the total of stars of the player at that moment
    */
 
@@ -81,8 +69,7 @@ public abstract class AbstractContender {
   }
 
   /**
-   * Set's the seed for this player's random number generator.
-   * <p>
+   * Sets the seed for this player's random number generator.
    * The random number generator is used for taking non-deterministic decisions, this method is
    * declared to avoid non-deterministic behaviour while testing the code.
    */
@@ -178,24 +165,6 @@ public abstract class AbstractContender {
   }
 
   /**
-   * the player is going to attack another contender
-   *
-   * @param enemigo
-   *    this is the target that he player is going
-   *    to attact to
-   */
-
-  public abstract void attack(AbstractContender enemigo);
-
-  /**
-   * This is the decision to dodge or defend
-   * and it depends on the type of contender we are
-   * looking at
-   */
-
-  public abstract boolean decision();
-
-  /**
    * this verify how much a player it would defend
    * from an attack
    *
@@ -210,7 +179,7 @@ public abstract class AbstractContender {
   }
 
   /**
-   * de player dodges and verify if the dodges is a
+   * the player dodges and verify if the dodges is a
    * success or a failure
    *
    * @param attack
@@ -229,37 +198,21 @@ public abstract class AbstractContender {
   }
 
   /**
-   * the player loses by a jugador type
+   * the contender attacks an enemy
    * @param enemigo
-   *    is the enemy who defeat the player
+   *    is the enemy who is being attacked by the contender
    */
 
-  public abstract void loseByJugador(AbstractContender enemigo);
-
-  /**
-   * the player loses by a Boss type
-   * @param enemigo
-   *    is the Boss who defeat the player
-   */
-
-  public abstract void loseByBoss(AbstractContender enemigo);
-
-  /**
-   * the player loses by a Wild Unit type
-   * @param enemigo
-   *    is the Wild Unit who defeat the player
-   */
-
-  public abstract void loseByWild(AbstractContender enemigo);
+  public abstract void attack(IContender enemigo);
 
   /**
    * the player is attacked by a jugador type
-   * @param enemigo
-   *    is the jugador who attacks the player
+   * @param jugador
+   *    is the jugador who attacks the contender
    */
 
-  public void attackedByJugador(AbstractContender enemigo){
-    int totalAttack = enemigo.roll() + enemigo.getAtk();
+  public void attackedByJugador(IContender jugador){
+    int totalAttack = jugador.roll() + jugador.getAtk();
     if (this.decision()){
       this.defender(totalAttack);
     }
@@ -267,18 +220,18 @@ public abstract class AbstractContender {
       this.dodge(totalAttack);
     }
     if(this.getCurrentHP()==0){
-      this.loseByJugador(enemigo);
+      this.loseByJugador(jugador);
     }
   }
 
   /**
    * the player is attacked by a Boss type
-   * @param enemigo
+   * @param boss
    *    is the Boss who attacks the player
    */
 
-  public void attackedByBoss(AbstractContender enemigo){
-    int totalAttack = enemigo.roll() + enemigo.getAtk();
+  public void attackedByBoss(IContender boss){
+    int totalAttack = boss.roll() + boss.getAtk();
     if (this.decision()){
       this.defender(totalAttack);
     }
@@ -286,18 +239,18 @@ public abstract class AbstractContender {
       this.dodge(totalAttack);
     }
     if(this.getCurrentHP()==0){
-      this.loseByBoss(enemigo);
+      this.loseByBoss(boss);
     }
   }
 
   /**
    * the player is attacked by a Wild Unit type
-   * @param enemigo
+   * @param wild
    *    is the Wild Unit who attacks the player
    */
 
-  public void attackedByWild(AbstractContender enemigo){
-    int totalAttack = enemigo.roll() + enemigo.getAtk();
+  public void attackedByWild(IContender wild){
+    int totalAttack = wild.roll() + wild.getAtk();
     if (this.decision()){
       this.defender(totalAttack);
     }
@@ -305,9 +258,33 @@ public abstract class AbstractContender {
       this.dodge(totalAttack);
     }
     if(this.getCurrentHP()==0){
-      this.loseByWild(enemigo);
+      this.loseByWild(wild);
     }
   }
+
+  /**
+   * the player loses by a jugador type
+   * @param jugador
+   *    is the enemy who defeat the contender
+   */
+
+  public abstract void loseByJugador(IContender jugador);
+
+  /**
+   * the player loses by a Boss type
+   * @param boss
+   *    is the Boss who defeat the contender
+   */
+
+  public abstract void loseByBoss(IContender boss);
+
+  /**
+   * the player loses by a Wild Unit type
+   * @param wild
+   *    is the Wild Unit who defeat the contender
+   */
+
+  public abstract void loseByWild(IContender wild);
 
   @Override
   public boolean equals(Object o) {

@@ -1,5 +1,13 @@
-package com.github.cc3002.citricjuice.model;
+package com.github.cc3002.citricjuice.model.contenders;
 
+import com.github.cc3002.citricjuice.model.NormaGoal;
+import com.github.cc3002.citricjuice.model.board.BonusPanel;
+import com.github.cc3002.citricjuice.model.board.DropPanel;
+import com.github.cc3002.citricjuice.model.board.DropPanelTest;
+import com.github.cc3002.citricjuice.model.board.HomePanel;
+import com.github.cc3002.citricjuice.model.contenders.Boss;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
+import com.github.cc3002.citricjuice.model.contenders.Wild;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -54,6 +62,34 @@ public class JugadorTest {
   }
 
   @Test
+  public void atkTest(){
+    assertEquals(1,suguri.getAtk());
+    suguri.setAtk(3);
+    assertEquals(3,suguri.getAtk());
+    suguri.setAtk(-1);
+    assertEquals(0,suguri.getAtk());
+
+  }
+
+  @Test
+  public void defTest(){
+    assertEquals(-1,suguri.getDef());
+    suguri.setDef(3);
+    assertEquals(3,suguri.getDef());
+    suguri.setDef(-1);
+    assertEquals(0,suguri.getDef());
+  }
+
+  @Test
+  public void defEvd(){
+    assertEquals(2,suguri.getEvd());
+    suguri.setEvd(3);
+    assertEquals(3,suguri.getEvd());
+    suguri.setEvd(-1);
+    assertEquals(0,suguri.getEvd());
+  }
+
+  @Test
   public void starsTest(){
     assertEquals(0, suguri.getStars());
     suguri.addStars(4);
@@ -63,10 +99,69 @@ public class JugadorTest {
   }
 
   @Test
+  public void whereAreWeTest(){
+    final var currentPanel = new HomePanel(2);
+    final var moveToPanel = new BonusPanel(1);
+    final var lastPanel = new DropPanel(3);
+    suguri.setPanel(currentPanel);
+    assertEquals(currentPanel,suguri.getPanel());
+    suguri.setPanel(moveToPanel);
+    assertEquals(moveToPanel,suguri.getPanel());
+    suguri.setPanel(lastPanel);
+    assertEquals(lastPanel,suguri.getPanel());
+  }
+
+  @Test
   public void normaClearTest() {
     //only for Jugadores, but could be implemented for Boss and Wild as well
     suguri.normaClear();
     assertEquals(2, suguri.getNormaLevel());
+  }
+
+  @Test
+  public void setNormaGoal(){
+    assertEquals(NormaGoal.STARS,suguri.getNormaGoal());
+    suguri.setNormaGoal(NormaGoal.WINS);
+    assertEquals(NormaGoal.WINS,suguri.getNormaGoal());
+  }
+
+  @Test
+  public void turnTest(){
+    assertEquals(false, suguri.getMyTurn());
+    suguri.setMyTurn(true);
+    assertEquals(true,suguri.getMyTurn());
+  }
+
+  @Test
+  public void winsTest(){
+    assertEquals(NormaGoal.STARS,suguri.getNormaGoal());
+    suguri.setNormaGoal(NormaGoal.WINS);
+    suguri.addWins(4);
+    suguri.normaCheck();
+    assertEquals(1,suguri.getNormaLevel());
+    suguri.normaClear();
+    suguri.normaCheck();
+    assertEquals(3,suguri.getNormaLevel());
+    suguri.normaCheck();
+    assertEquals(3,suguri.getNormaLevel());
+    suguri.addWins(10);
+    suguri.normaCheck();
+    assertEquals(4,suguri.getNormaLevel());
+    suguri.normaCheck();
+    assertEquals(5,suguri.getNormaLevel());
+    suguri.normaCheck();
+    assertEquals(6,suguri.getNormaLevel());
+    suguri.normaCheck();
+    assertEquals(6,suguri.getNormaLevel());
+  }
+
+  @Test
+  public void recoveryTest(){
+    assertEquals(0,suguri.getRecovery());
+    suguri.setRecovery(-6);
+    assertEquals(0,suguri.getRecovery());
+    suguri.setRecovery(6);
+    assertEquals(6,suguri.getRecovery());
   }
 
   @Test

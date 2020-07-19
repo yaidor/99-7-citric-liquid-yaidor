@@ -1,12 +1,12 @@
 package com.github.cc3002.citricjuice.model.board;
 
-import com.github.cc3002.citricjuice.model.Jugador;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class AbstractPanel {
+public abstract class AbstractPanel implements IPanel {
   private int idpanel;
-  private Set<AbstractPanel> next;
+  private Set<IPanel> next;
   private Set<Jugador> ocupado;
 
   /**
@@ -23,6 +23,10 @@ public abstract class AbstractPanel {
     this.ocupado = new HashSet<>();
   }
 
+  public int getIdpanel(){
+    return this.idpanel;
+  }
+
   /**
    * Returns the set of players on the panel
    */
@@ -35,7 +39,7 @@ public abstract class AbstractPanel {
    * Returns the set of the next panels
    */
 
-  public Set<AbstractPanel> getNext() {
+  public Set<IPanel> getNext() {
     return this.next;
   }
 
@@ -70,8 +74,10 @@ public abstract class AbstractPanel {
    *    is the panel to add to next panels
    */
 
-  public void addNextPanel(final AbstractPanel panel){
-    this.next.add(panel);
+  public void addNextPanel(final IPanel panel){
+    if (this.idpanel != panel.getIdpanel()){
+      this.next.add(panel);
+    }
   }
 
   /**
@@ -79,6 +85,8 @@ public abstract class AbstractPanel {
    */
 
   public abstract void action(final Jugador jugador);
+
+
 
   @Override
   public boolean equals(Object o) {

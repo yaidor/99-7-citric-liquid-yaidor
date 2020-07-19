@@ -1,6 +1,6 @@
 package com.github.cc3002.citricjuice.model.board;
 
-import com.github.cc3002.citricjuice.model.Jugador;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -83,8 +83,8 @@ public class PPanelTest {
             testBonusPanel.getNext());
 
     assertTrue(testBossPanel.getNext().isEmpty());
-    final var expectedBosPanel1 = new BossPanel(2);
-    final var expectedBosPanel2 = new BossPanel(3);
+    final var expectedBosPanel1 = new BossPanel(6);
+    final var expectedBosPanel2 = new BossPanel(7);
     testBossPanel.addNextPanel(expectedBosPanel1);
     assertEquals(1, testBossPanel.getNext().size());
     testBossPanel.addNextPanel(expectedBosPanel2);
@@ -95,8 +95,8 @@ public class PPanelTest {
             testBossPanel.getNext());
 
     assertTrue(testDropPanel.getNext().isEmpty());
-    final var expectedDroPanel1 = new DropPanel(2);
-    final var expectedDroPanel2 = new DropPanel(3);
+    final var expectedDroPanel1 = new DropPanel(9);
+    final var expectedDroPanel2 = new DropPanel(10);
     testDropPanel.addNextPanel(expectedDroPanel1);
     assertEquals(1, testDropPanel.getNext().size());
     testDropPanel.addNextPanel(expectedDroPanel2);
@@ -107,8 +107,8 @@ public class PPanelTest {
             testDropPanel.getNext());
 
     assertTrue(testEncounterPanel.getNext().isEmpty());
-    final var expectedEncPanel1 = new EncounterPanel(2);
-    final var expectedEncPanel2 = new EncounterPanel(3);
+    final var expectedEncPanel1 = new EncounterPanel(11);
+    final var expectedEncPanel2 = new EncounterPanel(12);
     testEncounterPanel.addNextPanel(expectedEncPanel1);
     assertEquals(1, testEncounterPanel.getNext().size());
     testEncounterPanel.addNextPanel(expectedEncPanel2);
@@ -119,8 +119,8 @@ public class PPanelTest {
             testEncounterPanel.getNext());
 
     assertTrue(testHomePanel.getNext().isEmpty());
-    final var expectedHomPanel1 = new HomePanel(2);
-    final var expectedHomPanel2 = new HomePanel(3);
+    final var expectedHomPanel1 = new HomePanel(13);
+    final var expectedHomPanel2 = new HomePanel(14);
     testHomePanel.addNextPanel(expectedHomPanel1);
     assertEquals(1, testHomePanel.getNext().size());
     testHomePanel.addNextPanel(expectedHomPanel2);
@@ -131,8 +131,8 @@ public class PPanelTest {
             testHomePanel.getNext());
 
     assertTrue(testDrawPanel.getNext().isEmpty());
-    final var expectedDraPanel1 = new DrawPanel(2);
-    final var expectedDraPanel2 = new DrawPanel(3);
+    final var expectedDraPanel1 = new DrawPanel(15);
+    final var expectedDraPanel2 = new DrawPanel(16);
     testDrawPanel.addNextPanel(expectedDraPanel1);
     assertEquals(1, testDrawPanel.getNext().size());
     testDrawPanel.addNextPanel(expectedDraPanel2);
@@ -180,7 +180,7 @@ public class PPanelTest {
   @RepeatedTest(100)
   public void dropPanelConsistencyTest() {
     int expectedStars = 30;
-    suguri.increaseStarsBy(30);
+    suguri.addStars(30);
     assertEquals(expectedStars, suguri.getStars());
     final var testRandom = new Random(testSeed);
     suguri.setSeed(testSeed);

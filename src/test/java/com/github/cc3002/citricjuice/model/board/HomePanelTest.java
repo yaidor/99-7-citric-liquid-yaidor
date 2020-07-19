@@ -1,6 +1,6 @@
 package com.github.cc3002.citricjuice.model.board;
 
-import com.github.cc3002.citricjuice.model.Jugador;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -74,5 +74,12 @@ public class HomePanelTest {
     suguri.setCurrentHP(1);
     testHomePanel.action(suguri);
     assertEquals(2, suguri.getCurrentHP());
+  }
+
+  @Test
+  public void ownership(){
+    assertEquals(null,testHomePanel.getOwner());
+    testHomePanel.setOwner(suguri);
+    assertEquals(suguri,testHomePanel.getOwner());
   }
 }

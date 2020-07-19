@@ -1,6 +1,6 @@
 package com.github.cc3002.citricjuice.model.board;
 
-import com.github.cc3002.citricjuice.model.Jugador;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.Set;
@@ -33,13 +33,16 @@ public class BossPanelTest {
     assertTrue(testBossPanel.getNext().isEmpty());
     final var expectedBosPanel1 = new BossPanel(2);
     final var expectedBosPanel2 = new BossPanel(3);
+    final var expectedBosPanel3 = new BossPanel(4);
     testBossPanel.addNextPanel(expectedBosPanel1);
+    assertEquals(0, testBossPanel.getNext().size());
+    testBossPanel.addNextPanel(expectedBosPanel2);
     assertEquals(1, testBossPanel.getNext().size());
     testBossPanel.addNextPanel(expectedBosPanel2);
+    assertEquals(1, testBossPanel.getNext().size());
+    testBossPanel.addNextPanel(expectedBosPanel3);
     assertEquals(2, testBossPanel.getNext().size());
-    testBossPanel.addNextPanel(expectedBosPanel2);
-    assertEquals(2, testBossPanel.getNext().size());
-    assertEquals(Set.of(expectedBosPanel1, expectedBosPanel2),
+    assertEquals(Set.of(expectedBosPanel2, expectedBosPanel3),
             testBossPanel.getNext());
   }
 

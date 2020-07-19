@@ -1,7 +1,6 @@
 package com.github.cc3002.citricjuice.model.board;
 
-import com.github.cc3002.citricjuice.model.Jugador;
-import java.util.Set;
+import com.github.cc3002.citricjuice.model.contenders.Jugador;
 
 public class EncounterPanel extends AbstractPanel{
   public EncounterPanel(int idpanel) {
