@@ -20,12 +20,22 @@ import java.io.IOException;
 
 
 public class CitricLiquid extends Application {
+  Stage window;
+  Scene inicio, piranhascene, booscene, goombascene, chainscene;
+  private static final String boo = "boo";
+  private static final String chain = "chain";
+  private static final String goomba = "goomba";
+  private static final String piranha = "piranha";
+
   private static final String RESOURCE_PATH = "src/main/resources/";
 
   @Override
   public void start(@NotNull Stage stage) throws FileNotFoundException {
-    stage.setTitle("99.7% Citric Liquid");
-    Group root = new Group();
+
+    window = stage;
+    window.setTitle("99.7% Citric Liquid");
+
+    Group game = new Group();
     BorderPane players = new BorderPane();
     StackPane playersStats = playersStats();
     players.setBottom(playersStats);
@@ -33,16 +43,17 @@ public class CitricLiquid extends Application {
     players.setTop(buttons());
     int width = 1000;
     int height = 1000;
-    Scene scene = new Scene(root, width, height);
+    Scene scene = new Scene(game, width, height);
     var sprite = new MovableNodeBuilder(scene).setImagePath(RESOURCE_PATH + "boo_token.png").setPosition(100, 300).setSize(50, 50).build();
     var background = new ImageView(new Image(new FileInputStream(RESOURCE_PATH + "backgroundmap.png")));
     background.setFitHeight(1000);
     background.setFitWidth(1000);
-    root.getChildren().add(background);
-    root.getChildren().add(players);
-    root.getChildren().add(sprite.getNode());
-    stage.setScene(scene);
-    stage.show();
+    game.getChildren().add(background);
+    game.getChildren().add(players);
+    game.getChildren().add(sprite.getNode());
+
+    window.setScene(scene);
+    window.show();
   }
 
   private @NotNull Button setupButtonBoo() {
@@ -145,7 +156,7 @@ public class CitricLiquid extends Application {
     chain.setFitHeight(250);
     chain.setFitWidth(250);
 
-    var piranha = new ImageView(new Image(new FileInputStream(RESOURCE_PATH + "prianha.png")));
+    var piranha = new ImageView(new Image(new FileInputStream(RESOURCE_PATH + "piranha.png")));
     piranha.setFitHeight(250);
     piranha.setFitWidth(250);
 
