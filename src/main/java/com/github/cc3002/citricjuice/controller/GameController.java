@@ -420,4 +420,102 @@ public class GameController {
   public IPanel getPlayerPanel(Jugador jugador) {
     return jugador.getPanel();
   }
+
+  /**
+   * return the id of a panel
+   * @param panel
+   *     is the panel to know the id
+   */
+
+  public int getPanelId(IPanel panel){
+    return panel.getIdpanel();
+  }
+
+  /**
+   * returns all the players in order of creation.
+   */
+
+  public List<Jugador> getPlayers(){
+    return totalPlayers;
+  }
+
+  /**
+   * returns the player's name
+   * @param player
+   *      is the player to get the name
+   */
+
+  public String getPlayerName(Jugador player){
+    return player.getName();
+  }
+
+  /**
+   * returns the player's attack
+   * @param player
+   *      is the player to get the attack
+   */
+
+  public int getPlayerAtk(Jugador player){
+    return player.getAtk();
+  }
+
+  /**
+   * returns the player's denfese
+   * @param player
+   *      is the player to get the defense
+   */
+
+  public int getPlayerDef(Jugador player){
+    return player.getDef();
+  }
+
+  /**
+   * returns the player's evasion
+   * @param player
+   *      is the player to get the evasion
+   */
+
+  public int getPlayerEvd(Jugador player){
+    return player.getEvd();
+  }
+
+  /**
+   * returns the player's HP
+   * @param player
+   *       is the player to get the HP
+   */
+
+  public int getPlayerHP(Jugador player){
+    return player.getCurrentHP();
+  }
+
+  /**
+   * returns the player's stars
+   * @param player
+   *      is the player to get the stars
+   */
+
+  public int getPlayerStars(Jugador player){
+    return player.getStars();
+  }
+
+  /**
+   * returns the player's norma level
+   * @param player
+   *      is the player to get the norma level
+   */
+
+  public int getPlayerLvl(Jugador player){
+    return player.getNormaLevel();
+  }
+
+  /**
+   * returns the player's wins
+   * @param player
+   *      is the player to get the wins
+   */
+
+  public int getPlayerWins(Jugador player){
+    return player.getWins();
+  }
 }
