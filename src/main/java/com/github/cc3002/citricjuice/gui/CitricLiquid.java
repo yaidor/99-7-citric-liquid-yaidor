@@ -30,6 +30,7 @@ import java.util.List;
 public class CitricLiquid extends Application {
   private final GameController controller = new GameController();
   BoardManagement internal = new BoardManagement(controller);
+  private final BorderPane players = new BorderPane();
   private final Label resdice = new Label();
   Stage window;
   int DICE = 0;
@@ -44,10 +45,6 @@ public class CitricLiquid extends Application {
     window = stage;
     window.setTitle("99.7% Citric Liquid");
     Group game = new Group();
-    BorderPane players = new BorderPane();
-    StackPane playersStats = playersStats();
-    players.setBottom(playersStats);
-    players.setCenter(board());
     players.setTop(buttons());
     int width = 1000;
     int height = 1000;
@@ -88,7 +85,7 @@ public class CitricLiquid extends Application {
     button.setFocusTraversable(false);
     button.setPrefWidth(100);
     button.setPrefHeight(50);
-    button.setOnAction(actionEvent -> DICE=(controller.rollPlayer(controller.getTurnOwner())));
+    button.setOnAction(actionEvent -> controller.movingPlayer(controller.getTurnOwner(),DICE=controller.rollPlayer(controller.getTurnOwner()),controller.getPlayerPanel(controller.getTurnOwner())));
     return button;
   }
 
@@ -213,6 +210,16 @@ public class CitricLiquid extends Application {
       @Override
       public void handle(final long now) {
         resdice.setText("Resultado: "+DICE);
+        try {
+          players.setCenter(board());
+        } catch (FileNotFoundException e) {
+          e.printStackTrace();
+        }
+        try {
+          players.setBottom(playersStats());
+        } catch (FileNotFoundException e) {
+          e.printStackTrace();
+        }
       }
     };
     timer.start();

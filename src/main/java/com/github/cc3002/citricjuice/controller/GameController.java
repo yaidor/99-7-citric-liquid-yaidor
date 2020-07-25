@@ -322,7 +322,7 @@ public class GameController {
    *    is going to be put on.
    */
 
-  private void movingPlayer(Jugador jugador, int res, IPanel panel) {
+  public void movingPlayer(Jugador jugador, int res, IPanel panel) {
     Set<Jugador> jugadores = panel.getOcupado();
     if (jugadores.size()>0 && getPlayerPanel(jugador) != panel){
       boolean wantFight = wantToFight(jugadores);
@@ -343,8 +343,8 @@ public class GameController {
           jugador.setPanel(panel);
           panel.addPla2Pan(jugador);
           panel.action(jugador);
-          turn.wantHome();
-          return;
+          //turn.wantHome();
+          endTurn();
         }
       }
     }
@@ -362,7 +362,6 @@ public class GameController {
       panel.addPla2Pan(jugador);
       panel.action(jugador);
       turn.path();
-      return;
     }
     if (res == 0){
       jugador.getPanel().leave(jugador);
@@ -370,6 +369,7 @@ public class GameController {
       panel.addPla2Pan(jugador);
       panel.action(jugador);
       turn.stayPanel();
+      endTurn();
       return;
     }
     res = res-1;
@@ -396,8 +396,8 @@ public class GameController {
    */
 
   private boolean wantToFight(Set<Jugador> jugadores) {
-    turn.wantFight();
-    return true;
+    //turn.wantFight();
+    return false;
   }
 
   /**
