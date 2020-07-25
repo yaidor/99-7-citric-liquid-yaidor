@@ -64,6 +64,10 @@ Los estados que podemos encontrar son los siguientes:
   - DOrD (estado de decisón del usuario dentro de una batalla, DOrD es Defend Or Dodge, lo cual es lo que decide el usuario cuando es atacado de vuelta)
   - End (estado que termina el turno y hace entrega del turno al siguiente jugador)
   
+# GUI! Ahora se ve!
+
+Ahora existe interfaz gáfica. La interfaz se conecta con el modelo mediante el controlador, teniendo de esta manera un MVC. Lamentablemente no fue posible realizar otras interacciones con el usuario más allá que el lanzar el dado. El lado positivo de esto, es que todo funciona como debiese, se suben los norma level como debiese, se lucha hasta tener un defeat, se ganan wins, se ganan/pierden estrellas en los paneles correspondientes. Se hacen elecciones al azar para el camino a seguir.
+  
   
 
 # Supuestos Importantes
