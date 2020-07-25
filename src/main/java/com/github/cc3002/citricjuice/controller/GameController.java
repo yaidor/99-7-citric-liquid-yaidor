@@ -7,6 +7,7 @@ import com.github.cc3002.citricjuice.turn.Turn;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 public class GameController {
@@ -325,13 +326,14 @@ public class GameController {
   public void movingPlayer(Jugador jugador, int res, IPanel panel) {
     Set<Jugador> jugadores = panel.getOcupado();
     if (jugadores.size()>0 && getPlayerPanel(jugador) != panel){
-      boolean wantFight = wantToFight(jugadores);
-      if (wantFight){
+      List<Jugador> wantFight = wantToFight(jugadores);
+      if (wantFight.size()>0){
         jugador.getPanel().leave(jugador);
         jugador.setPanel(panel);
         panel.addPla2Pan(jugador);
+        jugador.attack(wantFight.get(0));
         panel.action(jugador);
-        turn.wantFight();
+        endTurn();
         return;
       }
     }
@@ -345,6 +347,7 @@ public class GameController {
           panel.action(jugador);
           //turn.wantHome();
           endTurn();
+          return;
         }
       }
     }
@@ -395,9 +398,17 @@ public class GameController {
    * in conflict with modelTest, but here is going to be change the state
    */
 
-  private boolean wantToFight(Set<Jugador> jugadores) {
+  private List<Jugador> wantToFight(Set<Jugador> jugadores) {
     //turn.wantFight();
-    return false;
+    int n = jugadores.size();
+    List<Jugador> lista = new ArrayList<>(n);
+    lista.addAll(jugadores);
+    for(int j=0;j<n;j++){
+      if (lista.get(j).getCurrentHP()==0){
+        lista.remove(j);
+      }
+    }
+    return lista;
   }
 
   /**
@@ -408,7 +419,8 @@ public class GameController {
    */
 
   private IPanel decision(List<IPanel> paneles) {
-    return paneles.get(0);
+    int rnd = new Random().nextInt(paneles.size());
+    return paneles.get(rnd);
   }
 
   /**

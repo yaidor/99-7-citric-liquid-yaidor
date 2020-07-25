@@ -5,7 +5,6 @@ import com.github.cc3002.citricjuice.gui.board.BoardManagement;
 import com.github.cc3002.citricjuice.model.contenders.Jugador;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -59,27 +58,6 @@ public class CitricLiquid extends Application {
     window.show();
   }
 
-  private @NotNull Button setupButtonBoo() {
-    Button button = new Button("Play sound");
-    button.setFocusTraversable(false);
-    button.setOnAction(CitricLiquid::playSoundBoo);
-    return button;
-  }
-
-  private @NotNull Button setupButtonChain() {
-    Button button = new Button("Play sound");
-    button.setFocusTraversable(false);
-    button.setOnAction(CitricLiquid::playSoundChain);
-    return button;
-  }
-
-  private @NotNull Button setupButtonGoomba() {
-    Button button = new Button("Play sound");
-    button.setFocusTraversable(false);
-    button.setOnAction(CitricLiquid::playSoundGoomba);
-    return button;
-  }
-
   private @NotNull Button roll(){
     Button button = new Button("dado");
     button.setFocusTraversable(false);
@@ -89,15 +67,8 @@ public class CitricLiquid extends Application {
     return button;
   }
 
-  private @NotNull Button setupButtonPiranha() {
-    Button button = new Button("Play sound");
-    button.setFocusTraversable(false);
-    button.setOnAction(CitricLiquid::playSoundPiranha);
-    return button;
-  }
-
-  private static void playSoundBoo(ActionEvent event) {
-    String audioFilePath = RESOURCE_PATH + "boo.wav";
+  private static void playSound(String name) {
+    String audioFilePath = RESOURCE_PATH + name +".wav";
     try {
       Clip sound = AudioSystem.getClip();
       try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
@@ -110,58 +81,12 @@ public class CitricLiquid extends Application {
     }
   }
 
-  private static void playSoundChain(ActionEvent event) {
-    String audioFilePath = RESOURCE_PATH + "chain.wav";
-    try {
-      Clip sound = AudioSystem.getClip();
-      try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-              new File(audioFilePath))) {
-        sound.open(audioInputStream);
-        sound.start();
-      }
-    } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  private static void playSoundGoomba(ActionEvent event) {
-    String audioFilePath = RESOURCE_PATH + "goomba.wav";
-    try {
-      Clip sound = AudioSystem.getClip();
-      try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-              new File(audioFilePath))) {
-        sound.open(audioInputStream);
-        sound.start();
-      }
-    } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  private static void playSoundPiranha(ActionEvent event) {
-    String audioFilePath = RESOURCE_PATH + "piranha.wav";
-    try {
-      Clip sound = AudioSystem.getClip();
-      try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
-              new File(audioFilePath))) {
-        sound.open(audioInputStream);
-        sound.start();
-      }
-    } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
-      e.printStackTrace();
-    }
-  }
-
   private StackPane playersStats() throws FileNotFoundException{
     StackPane playersWithButtons = new StackPane();
     HBox players = new HBox();
-    HBox buttons = new HBox();
     HBox allStats = new HBox();
 
     allStats.getChildren().addAll(playerStats(0),playerStats(1),playerStats(2),playerStats(3));
-
-    buttons.setPadding(new Insets(5,77,5,77));
-    buttons.setSpacing(160);
 
     var boo = playerImagen(BOO);
     var chain = playerImagen(CHAIN);
@@ -169,7 +94,6 @@ public class CitricLiquid extends Application {
     var goomba = playerImagen(GOOMBA);
 
     players.getChildren().addAll(piranha,goomba,chain,boo);
-    buttons.getChildren().addAll(setupButtonPiranha(),setupButtonGoomba(),setupButtonChain(),setupButtonBoo());
     playersWithButtons.getChildren().addAll(players,allStats);
 
     return playersWithButtons;
