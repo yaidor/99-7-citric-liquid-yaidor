@@ -20,8 +20,10 @@ public class HomePanel extends AbstractPanel{
 
   @Override
   public void action(Jugador jugador) {
-    jugador.setCurrentHP(jugador.getCurrentHP() + 1);
-    jugador.normaCheck();
+    if (jugador.getCurrentHP()!=0) {
+      jugador.setCurrentHP(jugador.getCurrentHP() + 1);
+      jugador.normaCheck();
+    }
   }
 
   public void setOwner(Jugador jugador){

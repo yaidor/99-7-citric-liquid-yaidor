@@ -10,6 +10,18 @@ import java.util.List;
 
 public class BoardManagement {
 
+  /**
+   * creates a specific board, it was made this way
+   * for usage. This way we can make any board
+   * @param controller
+   *      is the controller created in the GUI and unique
+   *      for the game
+   * is important to note that the id in every panel
+   * represents the coordinate in the grid from de GUI
+   * adding +1 to the columns for representation of the
+   * column 0, int only saves the number
+   */
+
   public BoardManagement(GameController controller){
     IPanel homepiranha = controller.createHomePanel(32);
     IPanel homegoomba = controller.createHomePanel(72);
@@ -113,6 +125,14 @@ public class BoardManagement {
     controller.setNextPanel(boss2, homepiranha);
   }
 
+  /**
+   * Return a list with the number of the column of
+   * each player, in order of creation of the players
+   * @param controller
+   *      is the controller created in the GUI, we uses
+   *      this parameter because is unique in the game
+   */
+
   public List<Integer> currentColumnPlayers(GameController controller){
     List<Integer> columns = new ArrayList<>();
     List<Jugador> players = controller.getPlayers();
@@ -124,6 +144,14 @@ public class BoardManagement {
     }
     return columns;
   }
+
+  /**
+   * Return a list with the number of the row of
+   * each player, in order of creation of the players
+   * @param controller
+   *      is the controller created in the GUI, we uses
+   *      this parameter because is unique in the game
+   */
 
   public List<Integer> currentRowPlayers(GameController controller){
     List<Integer> rows = new ArrayList<>();

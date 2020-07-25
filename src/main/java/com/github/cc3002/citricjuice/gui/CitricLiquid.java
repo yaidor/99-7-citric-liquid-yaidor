@@ -67,6 +67,12 @@ public class CitricLiquid extends Application {
     return button;
   }
 
+  /**
+   * this method was intended to be used at the start of every turn making the sound
+   *
+   * @param name
+   */
+
   private static void playSound(String name) {
     String audioFilePath = RESOURCE_PATH + name +".wav";
     try {
@@ -80,6 +86,14 @@ public class CitricLiquid extends Application {
       e.printStackTrace();
     }
   }
+
+  /**
+   * Returns a stack panel with all the stats of the players, the stack has two
+   * horizontal boxes, one with the images of the players and the other
+   * has all the labels with
+   * @return
+   * @throws FileNotFoundException
+   */
 
   private StackPane playersStats() throws FileNotFoundException{
     StackPane playersWithButtons = new StackPane();
@@ -98,6 +112,10 @@ public class CitricLiquid extends Application {
 
     return playersWithButtons;
   }
+
+  /**
+   * return the top section with the buttons of interaction for the user
+   */
 
   private StackPane buttons(){
     StackPane res = new StackPane();
@@ -129,6 +147,13 @@ public class CitricLiquid extends Application {
     return res;
   }
 
+  /**
+   * this make a continuous refresh of the screen, in particular
+   * for the result of the dice when it is pressed, the board, to make the player's
+   * tokens moves along the board and refresh the stats of the players, as stars
+   * wins, norma level, HP
+   */
+
   private void setupTimer() {
     AnimationTimer timer = new AnimationTimer() {
       @Override
@@ -148,6 +173,11 @@ public class CitricLiquid extends Application {
     };
     timer.start();
   }
+
+  /**
+   * returns the board in a grid pane, also the grid has the current chapter and
+   * the player who is playing at the moment
+   */
 
   private GridPane board() throws FileNotFoundException{
     GridPane board = new GridPane();
@@ -231,6 +261,13 @@ public class CitricLiquid extends Application {
     return board;
   }
 
+  /**
+   * returns the stats of a specific player in a horizontal box
+   * @param x
+   *      the x value is the index number of the player in the list of players
+   * the if statement is because the las player has a white background image
+   */
+
   private HBox playerStats(int x){
     List<Jugador> jugadores = controller.getPlayers();
     HBox container = new HBox();
@@ -300,12 +337,24 @@ public class CitricLiquid extends Application {
     return container;
   }
 
+  /**
+   * returns the image of a player to set in the bottom, this method was made to not have duplicate code.
+   * @param name
+   *      name is the name of the player and also part of the name of the image
+   */
+
   private ImageView playerImagen(String name) throws FileNotFoundException {
     var imagen = new ImageView(new Image(new FileInputStream(RESOURCE_PATH + name +".png")));
     imagen.setFitHeight(250);
     imagen.setFitWidth(250);
     return imagen;
   }
+
+  /**
+   * return the image that it will be used to the board
+   * @param name
+   *      'name' is the parameter of the name of the file
+   */
 
   protected ImageView block(String name) throws FileNotFoundException{
     var block = new ImageView(new Image(new FileInputStream(RESOURCE_PATH + name +"block.png")));
@@ -314,12 +363,28 @@ public class CitricLiquid extends Application {
     return block;
   }
 
+  /**
+   * return the image to be used as a token in the board
+   * @param name
+   *      'name' is the name of the player that matches the file name
+   */
+
   private ImageView playerToken(String name) throws FileNotFoundException{
     var token = new ImageView(new Image(new FileInputStream(RESOURCE_PATH + name +"_token.png")));
     token.setFitHeight(70);
     token.setFitWidth(70);
     return token;
   }
+
+  /**
+   * returns an array of ImageView, in particular an array of ImageView if blocks that
+   * it going to be used in the board, as we can't use the same value in a grid is necessary
+   * to create a single value.
+   * @param x
+   *      'x' is the number of images that you need
+   * @param name
+   *     'name' is part of the name of the file to be used in the method block
+   */
 
   private ImageView[] blocks(int x, String name) throws FileNotFoundException {
     ImageView[] result = new ImageView[x];
