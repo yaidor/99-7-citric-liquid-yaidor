@@ -3,6 +3,7 @@ package com.github.cc3002.citricjuice.gui;
 import com.github.cc3002.citricjuice.controller.GameController;
 import com.github.cc3002.citricjuice.gui.board.BoardManagement;
 import com.github.cc3002.citricjuice.model.contenders.Jugador;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -29,13 +30,13 @@ import java.util.List;
 public class CitricLiquid extends Application {
   private final GameController controller = new GameController();
   BoardManagement internal = new BoardManagement(controller);
+  private final Label resdice = new Label();
   Stage window;
-  Scene inicio, piranhascene, booscene, goombascene, chainscene;
+  int DICE = 0;
   private static final String BOO = "boo";
   private static final String CHAIN = "chain";
   private static final String GOOMBA = "goomba";
   private static final String PIRANHA = "piranha";
-
   private static final String RESOURCE_PATH = "src/main/resources/";
 
   @Override
@@ -56,7 +57,7 @@ public class CitricLiquid extends Application {
     background.setFitWidth(1000);
     game.getChildren().add(background);
     game.getChildren().add(players);
-
+    setupTimer();
     window.setScene(scene);
     window.show();
   }
@@ -79,6 +80,15 @@ public class CitricLiquid extends Application {
     Button button = new Button("Play sound");
     button.setFocusTraversable(false);
     button.setOnAction(CitricLiquid::playSoundGoomba);
+    return button;
+  }
+
+  private @NotNull Button roll(){
+    Button button = new Button("dado");
+    button.setFocusTraversable(false);
+    button.setPrefWidth(100);
+    button.setPrefHeight(50);
+    button.setOnAction(actionEvent -> DICE=(controller.rollPlayer(controller.getTurnOwner())));
     return button;
   }
 
@@ -168,15 +178,20 @@ public class CitricLiquid extends Application {
     return playersWithButtons;
   }
 
-  private HBox buttons(){
+  private StackPane buttons(){
+    StackPane res = new StackPane();
     HBox buttons = new HBox();
+    HBox show = new HBox();
 
+    show.setPadding(new Insets(25, 0,25,280));
+    show.setSpacing(175);
+    resdice.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+    resdice.setTextFill(Color.WHITE);
+    show.getChildren().add(resdice);
     buttons.setPadding(new Insets(25,175,25,175));
     buttons.setSpacing(175);
 
-    Button dice = new Button("dado");
-    dice.setPrefWidth(100);
-    dice.setPrefHeight(50);
+    Button dice = roll();
 
     Button dodge = new Button("esquivar");
     dodge.setPrefWidth(100);
@@ -186,11 +201,21 @@ public class CitricLiquid extends Application {
     defend.setPrefWidth(100);
     defend.setPrefHeight(50);
 
-    buttons.setStyle("-fx-background-color: rgba(21,45,4,0.88);");
+    show.setStyle("-fx-background-color: rgba(21,45,4,0.88);");
 
     buttons.getChildren().addAll(dice,dodge,defend);
+    res.getChildren().addAll(show,buttons);
+    return res;
+  }
 
-    return buttons;
+  private void setupTimer() {
+    AnimationTimer timer = new AnimationTimer() {
+      @Override
+      public void handle(final long now) {
+        resdice.setText("Resultado: "+DICE);
+      }
+    };
+    timer.start();
   }
 
   private GridPane board() throws FileNotFoundException{

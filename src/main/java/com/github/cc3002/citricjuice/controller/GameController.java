@@ -518,4 +518,8 @@ public class GameController {
   public int getPlayerWins(Jugador player){
     return player.getWins();
   }
+
+  public int rollPlayer(Jugador player){
+    return player.roll();
+  }
 }
