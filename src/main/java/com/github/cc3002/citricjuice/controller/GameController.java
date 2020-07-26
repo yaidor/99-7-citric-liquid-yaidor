@@ -7,6 +7,7 @@ import com.github.cc3002.citricjuice.turn.Turn;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 public class GameController {
@@ -322,16 +323,17 @@ public class GameController {
    *    is going to be put on.
    */
 
-  private void movingPlayer(Jugador jugador, int res, IPanel panel) {
+  public void movingPlayer(Jugador jugador, int res, IPanel panel) {
     Set<Jugador> jugadores = panel.getOcupado();
     if (jugadores.size()>0 && getPlayerPanel(jugador) != panel){
-      boolean wantFight = wantToFight(jugadores);
-      if (wantFight){
+      List<Jugador> wantFight = wantToFight(jugadores);
+      if (wantFight.size()>0){
         jugador.getPanel().leave(jugador);
         jugador.setPanel(panel);
         panel.addPla2Pan(jugador);
+        jugador.attack(wantFight.get(0));
         panel.action(jugador);
-        turn.wantFight();
+        endTurn();
         return;
       }
     }
@@ -343,7 +345,8 @@ public class GameController {
           jugador.setPanel(panel);
           panel.addPla2Pan(jugador);
           panel.action(jugador);
-          turn.wantHome();
+          //turn.wantHome();
+          endTurn();
           return;
         }
       }
@@ -362,7 +365,6 @@ public class GameController {
       panel.addPla2Pan(jugador);
       panel.action(jugador);
       turn.path();
-      return;
     }
     if (res == 0){
       jugador.getPanel().leave(jugador);
@@ -370,6 +372,7 @@ public class GameController {
       panel.addPla2Pan(jugador);
       panel.action(jugador);
       turn.stayPanel();
+      endTurn();
       return;
     }
     res = res-1;
@@ -395,9 +398,17 @@ public class GameController {
    * in conflict with modelTest, but here is going to be change the state
    */
 
-  private boolean wantToFight(Set<Jugador> jugadores) {
-    turn.wantFight();
-    return true;
+  private List<Jugador> wantToFight(Set<Jugador> jugadores) {
+    //turn.wantFight();
+    int n = jugadores.size();
+    List<Jugador> lista = new ArrayList<>(n);
+    lista.addAll(jugadores);
+    for(int j=0;j<n;j++){
+      if (lista.get(j).getCurrentHP()==0){
+        lista.remove(j);
+      }
+    }
+    return lista;
   }
 
   /**
@@ -408,7 +419,8 @@ public class GameController {
    */
 
   private IPanel decision(List<IPanel> paneles) {
-    return paneles.get(0);
+    int rnd = new Random().nextInt(paneles.size());
+    return paneles.get(rnd);
   }
 
   /**
@@ -419,5 +431,107 @@ public class GameController {
 
   public IPanel getPlayerPanel(Jugador jugador) {
     return jugador.getPanel();
+  }
+
+  /**
+   * return the id of a panel
+   * @param panel
+   *     is the panel to know the id
+   */
+
+  public int getPanelId(IPanel panel){
+    return panel.getIdpanel();
+  }
+
+  /**
+   * returns all the players in order of creation.
+   */
+
+  public List<Jugador> getPlayers(){
+    return totalPlayers;
+  }
+
+  /**
+   * returns the player's name
+   * @param player
+   *      is the player to get the name
+   */
+
+  public String getPlayerName(Jugador player){
+    return player.getName();
+  }
+
+  /**
+   * returns the player's attack
+   * @param player
+   *      is the player to get the attack
+   */
+
+  public int getPlayerAtk(Jugador player){
+    return player.getAtk();
+  }
+
+  /**
+   * returns the player's denfese
+   * @param player
+   *      is the player to get the defense
+   */
+
+  public int getPlayerDef(Jugador player){
+    return player.getDef();
+  }
+
+  /**
+   * returns the player's evasion
+   * @param player
+   *      is the player to get the evasion
+   */
+
+  public int getPlayerEvd(Jugador player){
+    return player.getEvd();
+  }
+
+  /**
+   * returns the player's HP
+   * @param player
+   *       is the player to get the HP
+   */
+
+  public int getPlayerHP(Jugador player){
+    return player.getCurrentHP();
+  }
+
+  /**
+   * returns the player's stars
+   * @param player
+   *      is the player to get the stars
+   */
+
+  public int getPlayerStars(Jugador player){
+    return player.getStars();
+  }
+
+  /**
+   * returns the player's norma level
+   * @param player
+   *      is the player to get the norma level
+   */
+
+  public int getPlayerLvl(Jugador player){
+    return player.getNormaLevel();
+  }
+
+  /**
+   * returns the player's wins
+   * @param player
+   *      is the player to get the wins
+   */
+
+  public int getPlayerWins(Jugador player){
+    return player.getWins();
+  }
+
+  public int rollPlayer(Jugador player){
+    return player.roll();
   }
 }

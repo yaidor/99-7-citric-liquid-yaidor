@@ -222,6 +222,9 @@ public abstract class AbstractContender implements IContender {
     if(this.getCurrentHP()==0){
       this.loseByJugador(jugador);
     }
+    else{
+      this.attack(jugador);
+    }
   }
 
   /**
