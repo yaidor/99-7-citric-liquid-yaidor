@@ -67,6 +67,9 @@ Los estados que podemos encontrar son los siguientes:
 # GUI! Ahora se ve!
 
 Ahora existe interfaz gáfica. La interfaz se conecta con el modelo mediante el controlador, teniendo de esta manera un MVC. Lamentablemente no fue posible realizar otras interacciones con el usuario más allá que el lanzar el dado. El lado positivo de esto, es que todo funciona como debiese, se suben los norma level como debiese, se lucha hasta tener un defeat, se ganan wins, se ganan/pierden estrellas en los paneles correspondientes. Se hacen elecciones al azar para el camino a seguir.
+
+Lamentablemente a pesar de dedicarle aun mas tiempo a esta parte del proyecto, no fue posible obtener los resultados deseados, aun cuando el potencial estaba directamente, ya que se veían los cambios esperados.
+Dentro del plazo  que se dio y las horas que uno debiese dedicarle a la semana, me di cuenta que no es posible, tengo ya mas de 30 horas dedicadas y no he podido conectar los ultimos pasos para que el usuario interactue más.
   
   
 
